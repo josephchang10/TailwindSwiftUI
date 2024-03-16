@@ -163,3 +163,42 @@ LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing: .scale(.s2)), co
     .aspectRatio(1, contentMode: .fit)
 }
 ```
+
+![Typography](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/6a1c8fce-3de3-489c-b900-221963f514c1)
+
+**Typography**
+
+```swift
+VStack(alignment: .leading, spacing: .scale(.s5)) {
+    Group {
+        VStack(alignment: .leading) {
+            Text(".fontDesign(.default)")
+                .text(.small)
+                .border(.bottom)
+            Text("The quick brown fox jumps over the lazy dog.")
+                .fontDesign(.default)
+        }
+        VStack(alignment: .leading) {
+            Text(".fontDesign(.serif)")
+                .text(.small)
+                .border(.bottom)
+            Text("The quick brown fox jumps over the lazy dog.")
+                .fontDesign(.serif)
+        }
+        VStack(alignment: .leading) {
+            Text(".fontDesign(.monospaced)")
+                .text(.small)
+                .border(.bottom)
+            Text("The quick brown fox jumps over the lazy dog.")
+                .fontDesign(.monospaced)
+        }
+    }
+    .padding(.s3)
+    .background(.white)
+    .rounded(.large)
+    .shadow()
+}
+```
+
+<img width="453" alt="Screenshot 2024-03-16 at 5 41 05 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/afcf4697-1fbd-43eb-b2e5-be72c572b490">
+
