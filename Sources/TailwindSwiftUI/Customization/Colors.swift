@@ -35,6 +35,45 @@ public extension Color {
     static let sky900 = named("sky-900")
     static let sky950 = named("sky-950")
     
+    // Blue
+    static let blue50 = named("blue-50")
+    static let blue100 = named("blue-100")
+    static let blue200 = named("blue-200")
+    static let blue300 = named("blue-300")
+    static let blue400 = named("blue-400")
+    static let blue500 = named("blue-500")
+    static let blue600 = named("blue-600")
+    static let blue700 = named("blue-700")
+    static let blue800 = named("blue-800")
+    static let blue900 = named("blue-900")
+    static let blue950 = named("blue-950")
+    
+    // Indigo
+    static let indigo50 = named("indigo-50")
+    static let indigo100 = named("indigo-100")
+    static let indigo200 = named("indigo-200")
+    static let indigo300 = named("indigo-300")
+    static let indigo400 = named("indigo-400")
+    static let indigo500 = named("indigo-500")
+    static let indigo600 = named("indigo-600")
+    static let indigo700 = named("indigo-700")
+    static let indigo800 = named("indigo-800")
+    static let indigo900 = named("indigo-900")
+    static let indigo950 = named("indigo-950")
+    
+    // Violet
+    static let violet50 = named("violet-50")
+    static let violet100 = named("violet-100")
+    static let violet200 = named("violet-200")
+    static let violet300 = named("violet-300")
+    static let violet400 = named("violet-400")
+    static let violet500 = named("violet-500")
+    static let violet600 = named("violet-600")
+    static let violet700 = named("violet-700")
+    static let violet800 = named("violet-800")
+    static let violet900 = named("violet-900")
+    static let violet950 = named("violet-950")
+    
     // Helper function to get the Color from assets
     private static func named(_ name: String) -> Color {
         #if canImport(AppKit)
@@ -71,4 +110,43 @@ public extension ShapeStyle where Self == Color {
     static var sky800: Color { .sky800 }
     static var sky900: Color { .sky900 }
     static var sky950: Color { .sky950 }
+    
+    // Blue
+    static var blue50: Color { .blue50 }
+    static var blue100: Color { .blue100 }
+    static var blue200: Color { .blue200 }
+    static var blue300: Color { .blue300 }
+    static var blue400: Color { .blue400 }
+    static var blue500: Color { .blue500 }
+    static var blue600: Color { .blue600 }
+    static var blue700: Color { .blue700 }
+    static var blue800: Color { .blue800 }
+    static var blue900: Color { .blue900 }
+    static var blue950: Color { .blue950 }
+    
+    // Indigo
+    static var indigo50: Color { .indigo50 }
+    static var indigo100: Color { .indigo100 }
+    static var indigo200: Color { .indigo200 }
+    static var indigo300: Color { .indigo300 }
+    static var indigo400: Color { .indigo400 }
+    static var indigo500: Color { .indigo500 }
+    static var indigo600: Color { .indigo600 }
+    static var indigo700: Color { .indigo700 }
+    static var indigo800: Color { .indigo800 }
+    static var indigo900: Color { .indigo900 }
+    static var indigo950: Color { .indigo950 }
+    
+    // Violet
+    static var violet50: Color { .violet50 }
+    static var violet100: Color { .violet100 }
+    static var violet200: Color { .violet200 }
+    static var violet300: Color { .violet300 }
+    static var violet400: Color { .violet400 }
+    static var violet500: Color { .violet500 }
+    static var violet600: Color { .violet600 }
+    static var violet700: Color { .violet700 }
+    static var violet800: Color { .violet800 }
+    static var violet900: Color { .violet900 }
+    static var violet950: Color { .violet950 }
 }
