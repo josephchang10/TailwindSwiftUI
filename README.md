@@ -202,7 +202,7 @@ VStack(alignment: .leading, spacing: .scale(.s5)) {
 }
 ```
 
-![Shadows](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/58fff76a-1959-4591-ae19-b46449f461db)
+![Shadows](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/e0168f7d-f50c-4a44-9bda-389dbfc7adf5)
 
 **Shadows**
 
