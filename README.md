@@ -168,6 +168,8 @@ LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing: .scale(.s2)), co
 
 **Typography**
 
+<img width="453" alt="Screenshot 2024-03-16 at 5 41 05 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/afcf4697-1fbd-43eb-b2e5-be72c572b490">
+
 ```swift
 VStack(alignment: .leading, spacing: .scale(.s5)) {
     Group {
@@ -200,5 +202,46 @@ VStack(alignment: .leading, spacing: .scale(.s5)) {
 }
 ```
 
-<img width="453" alt="Screenshot 2024-03-16 at 5 41 05 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/afcf4697-1fbd-43eb-b2e5-be72c572b490">
+![Shadows](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/58fff76a-1959-4591-ae19-b46449f461db)
 
+**Shadows**
+
+<img width="502" alt="Screenshot 2024-03-17 at 10 43 06 AM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/9aa939c3-2705-446c-a6b7-4135b52e3b41">
+
+```swift
+LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: .scale(.s4)), count: 2), spacing: .scale(.s6)) {
+    Group {
+        Text(".shadow(.small)")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .background(.white)
+            .rounded(.large)
+            .boxShadow(.small)
+        Text(".shadow()")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .background(.white)
+            .rounded(.large)
+            .boxShadow()
+        Text(".shadow(.medium)")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .background(.white)
+            .rounded(.large)
+            .boxShadow(.medium)
+        Text(".shadow(.large)")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .background(.white)
+            .rounded(.large)
+            .boxShadow(.large)
+        Text(".shadow(.extraLarge)")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .background(.white)
+            .rounded(.large)
+            .boxShadow(.extraLarge)
+        Text(".shadow(.doubleExtraLarge)")
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            .background(.white)
+            .rounded(.large)
+            .boxShadow(.doubleExtraLarge)
+    }
+    .height(.s20)
+}
+```
