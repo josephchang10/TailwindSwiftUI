@@ -18,6 +18,7 @@
 		7C26ED9A2BA5800C0054ED15 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26ED992BA5800C0054ED15 /* SizingView.swift */; };
 		7C26ED9C2BA58ECB0054ED15 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26ED9B2BA58ECB0054ED15 /* ColorsView.swift */; };
 		7C26ED9E2BA59AA20054ED15 /* TypographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26ED9D2BA59AA20054ED15 /* TypographyView.swift */; };
+		7C26EDA02BA5A1260054ED15 /* ShadowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26ED9F2BA5A1260054ED15 /* ShadowsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		7C26ED992BA5800C0054ED15 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		7C26ED9B2BA58ECB0054ED15 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
 		7C26ED9D2BA59AA20054ED15 /* TypographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyView.swift; sourceTree = "<group>"; };
+		7C26ED9F2BA5A1260054ED15 /* ShadowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				7C26ED992BA5800C0054ED15 /* SizingView.swift */,
 				7C26ED9B2BA58ECB0054ED15 /* ColorsView.swift */,
 				7C26ED9D2BA59AA20054ED15 /* TypographyView.swift */,
+				7C26ED9F2BA5A1260054ED15 /* ShadowsView.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C26EDA02BA5A1260054ED15 /* ShadowsView.swift in Sources */,
 				7C26ED9C2BA58ECB0054ED15 /* ColorsView.swift in Sources */,
 				7C26ED6E2BA433DE0054ED15 /* ContentView.swift in Sources */,
 				7C26ED9A2BA5800C0054ED15 /* SizingView.swift in Sources */,
