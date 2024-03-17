@@ -26,7 +26,11 @@ struct EdgeBorder: Shape {
 }
 
 public extension View {
-    func border(_ edges: Edge.Set) -> some View {
+    func border(_ edges: Edge.Set = .all) -> some View {
         overlay(EdgeBorder(width: 1, edges: edges))
+    }
+    
+    func border(_ content: some ShapeStyle = .black, _ edges: Edge.Set) -> some View {
+        overlay(EdgeBorder(width: 1, edges: edges).fill(content))
     }
 }

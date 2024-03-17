@@ -8,6 +8,10 @@
 import SwiftUI
 
 public struct Width: ViewModifier {
+    public enum WScale {
+        case full
+    }
+    
     let scale: Scale
     
     public func body(content: Content) -> some View {
@@ -25,5 +29,12 @@ public extension ViewModifier where Self == Width {
 public extension View {
     func width(_ scale: Scale) -> some View {
         frame(width: .scale(scale))
+    }
+    
+    func width(_ scale: Width.WScale) -> some View {
+        switch scale {
+        case .full:
+            frame(maxWidth: .infinity, alignment: .leading)
+        }
     }
 }

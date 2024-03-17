@@ -8,6 +8,10 @@
 import SwiftUI
 
 public struct Height: ViewModifier {
+    public enum HScale {
+        case full
+    }
+    
     let scale: Scale
     
     public func body(content: Content) -> some View {
@@ -25,5 +29,12 @@ public extension ViewModifier where Self == Height {
 public extension View {
     func height(_ scale: Scale) -> some View {
         frame(height: .scale(scale))
+    }
+    
+    func height(_ scale: Height.HScale) -> some View {
+        switch scale {
+        case .full:
+            frame(maxHeight: .infinity)
+        }
     }
 }

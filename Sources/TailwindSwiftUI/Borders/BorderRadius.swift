@@ -36,6 +36,10 @@ public extension View {
     func rounded(_ size: BorderRadius.Size = .notSpecific) -> some View {
         modifier(BorderRadius(size: size))
     }
+    
+    func border(_ content: some ShapeStyle = .black, rounded size: BorderRadius.Size) -> some View {
+        overlay(RoundedRectangle(cornerRadius: size.cornerRadius).stroke(content))
+    }
 }
 
 public extension ViewModifier where Self == BorderRadius {
