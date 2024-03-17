@@ -256,7 +256,7 @@ LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: .scale(.s4)),
 
 **Simple**
 
-<img width="519" alt="Screenshot 2024-03-17 at 2 07 56 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/764648d9-f852-4974-b5d8-a1bcd99092dd">
+<img width="526" alt="Screenshot 2024-03-17 at 4 55 56 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/e8589f59-9834-4bb8-abff-c7b2977fb51c">
 
 ```
 HStack {
@@ -307,6 +307,8 @@ HStack {
                         }
                         .rounded(.large)
                 }
+                .accessibilityLabel("\(size) size")
+                .accessibilityValue(selectedSize == size ? "selected" : "not selected")
                 .buttonStyle(.plain)
             }
         }
@@ -320,6 +322,7 @@ HStack {
                 Button("Buy now") {}
                     .height(.s10)
                     .padding(.horizontal, .s6)
+                    .fontWeight(.semibold)
                     .background(.black)
                     .foregroundStyle(.white)
                     .rounded(.medium)
@@ -327,6 +330,7 @@ HStack {
                 Button("Add to bag") {}
                     .height(.s10)
                     .padding(.horizontal, .s6)
+                    .fontWeight(.semibold)
                     .border(.slate200, rounded: .medium)
                     .foregroundStyle(.slate900)
                     .buttonStyle(.plain)
