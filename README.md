@@ -236,11 +236,11 @@ LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: .scale(.s4)),
             .background(.white)
             .rounded(.large)
             .boxShadow(.extraLarge)
-        Text(".shadow(.doubleExtraLarge)")
+        Text(".shadow(.extraLarge2)")
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
             .background(.white)
             .rounded(.large)
-            .boxShadow(.doubleExtraLarge)
+            .boxShadow(.extraLarge2)
     }
     .height(.s20)
 }

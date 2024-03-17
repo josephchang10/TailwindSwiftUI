@@ -57,7 +57,7 @@ public struct Shadow: ViewModifier {
         case medium
         case large
         case extraLarge
-        case doubleExtraLarge
+        case extraLarge2
     }
     
     let size: Size
@@ -83,7 +83,7 @@ public struct Shadow: ViewModifier {
             content
                 .shadow(color: Color.black.opacity(0.1), radius: 25, x: 0, y: 20)
                 .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 8)
-        case .doubleExtraLarge:
+        case .extraLarge2:
             content
                 .shadow(color: Color.black.opacity(0.25), radius: 50, x: 0, y: 25)
         }
@@ -111,7 +111,7 @@ public extension View {
         case .extraLarge:
             AnyView(boxShadow(type: .color(c: .black.opacity(0.1)), radius: 25, offset: .init(x: 0, y: 20), spread: .init(width: -5, height: -5))
                 .boxShadow(type: .color(c: .black.opacity(0.1)), radius: 10, offset: .init(x: 0, y: 8), spread: .init(width: -6, height: -6)))
-        case .doubleExtraLarge:
+        case .extraLarge2:
             AnyView(boxShadow(type: .color(c: .black.opacity(0.25)), radius: 50, offset: .init(x: 0, y: 25), spread: .init(width: -12, height: -12)))
         }
     }

@@ -15,8 +15,8 @@ public struct BorderRadius: ViewModifier {
         case medium = 0.375
         case large = 0.5
         case extraLarge = 0.75
-        case doubleExtraLarge = 1
-        case tripleExtraLarge = 1.5
+        case extraLarge2 = 1
+        case extraLarge3 = 1.5
         case full = 9999
         
         var cornerRadius: CGFloat {

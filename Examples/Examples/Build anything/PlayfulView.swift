@@ -1,5 +1,5 @@
 //
-//  SimpleView.swift
+//  PlayfulView.swift
 //  Examples
 //
 //  Created by Jiafu Zhang on 3/17/24.
@@ -7,39 +7,37 @@
 
 import SwiftUI
 
-struct SimpleView: View {
+struct PlayfulView: View {
     @State private var selectedSize: String = "XS"
     
     var body: some View {
         HStack {
-            AsyncImage(url: .init(string: "https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b")) { image in
+            AsyncImage(url: .init(string: "https://images.unsplash.com/photo-1568385247005-0d371d214a2c")) { image in
                 image
                     .resizable()
                     .scaledToFill()
             } placeholder: {
                 ProgressView()
             }
-            .width(.s48)
+            .width(.s56)
             .height(.full)
-            .clipped()
+            .rounded(.large)
             Form {
                 HStack {
-                    Text("Pullover Hoodie")
-                        .text(.large)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.slate900)
+                    Text("Kids Dress")
                         .width(.full)
-                    Text("$110.00")
-                        .text(.large)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.slate500)
+                        .fontWeight(.medium)
+                        .foregroundStyle(.slate900)
+                    Text("In stock")
+                        .text(.small)
+                        .fontWeight(.medium)
+                        .foregroundStyle(.slate400)
                 }
-                Text("In stock")
-                    .width(.full)
-                    .text(.small)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.slate700)
+                Text("$39.00")
                     .padding(.top, .s2)
+                    .text(.extraLarge3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.violet600)
                 HStack(alignment: .firstTextBaseline, spacing: .scale(.s2)) {
                     ForEach(["XS", "S", "M", "L", "XL"], id: \.self) { size in
                         Button {
@@ -51,18 +49,21 @@ struct SimpleView: View {
                                 .if(selectedSize == size) { view in
                                     view
                                         .fontWeight(.medium)
-                                        .background(.slate900)
+                                        .background(.violet600)
                                         .foregroundStyle(.white)
                                 } or: { view in
                                     view
-                                        .foregroundStyle(.slate700)
+                                        .foregroundStyle(.violet400)
                                 }
-                                .rounded(.large)
+                                .rounded(.full)
                         }
+                        .accessibilityLabel("\(size) size")
+                        .accessibilityValue(selectedSize == size ? "selected" : "not selected")
                         .buttonStyle(.plain)
                     }
                 }
                 .text(.small)
+                .fontWeight(.bold)
                 .padding(.bottom, .s6)
                 .border(.slate200, .bottom)
                 .padding(.top, .s4)
@@ -72,14 +73,16 @@ struct SimpleView: View {
                         Button("Buy now") {}
                             .height(.s10)
                             .padding(.horizontal, .s6)
-                            .background(.black)
+                            .fontWeight(.semibold)
+                            .background(.violet600)
                             .foregroundStyle(.white)
-                            .rounded(.medium)
+                            .rounded(.full)
                             .buttonStyle(.plain)
                         Button("Add to bag") {}
                             .height(.s10)
                             .padding(.horizontal, .s6)
-                            .border(.slate200, rounded: .medium)
+                            .fontWeight(.semibold)
+                            .border(.slate200, rounded: .full)
                             .foregroundStyle(.slate900)
                             .buttonStyle(.plain)
                     }
@@ -89,26 +92,29 @@ struct SimpleView: View {
                     }
                     .width(.s9)
                     .height(.s9)
-                    .foregroundStyle(.slate300)
-                    .border(.slate200, rounded: .medium)
+                    .foregroundStyle(.violet600)
+                    .background(.violet50)
+                    .rounded(.full)
                     .accessibilityLabel("Like")
                     .buttonStyle(.plain)
                 }
-                .padding(.bottom, .s6)
+                .padding(.bottom, .s5)
                 .text(.small)
                 .fontWeight(.medium)
                 Text("Free shipping on all continental US orders.")
                     .text(.small)
-                    .foregroundStyle(.slate700)
+                    .foregroundStyle(.slate500)
             }
             .padding(.s6)
             .width(.full)
         }
         .background(.white)
-        .frame(width: 480, height: 300)
+        .rounded(.large)
+        .frame(width: 500)
+        .padding()
     }
 }
 
 #Preview {
-    SimpleView()
+    PlayfulView()
 }
