@@ -276,14 +276,14 @@ HStack {
                 .text(.large)
                 .fontWeight(.semibold)
                 .foregroundStyle(.slate900)
-                .width(.full)
+                .width(.full, alignment: .leading)
             Text("$110.00")
                 .text(.large)
                 .fontWeight(.semibold)
                 .foregroundStyle(.slate500)
         }
         Text("In stock")
-            .width(.full)
+            .width(.full, alignment: .leading)
             .text(.small)
             .fontWeight(.medium)
             .foregroundStyle(.slate700)
@@ -322,7 +322,6 @@ HStack {
                 Button("Buy now") {}
                     .height(.s10)
                     .padding(.horizontal, .s6)
-                    .fontWeight(.semibold)
                     .background(.black)
                     .foregroundStyle(.white)
                     .rounded(.medium)
@@ -330,12 +329,12 @@ HStack {
                 Button("Add to bag") {}
                     .height(.s10)
                     .padding(.horizontal, .s6)
-                    .fontWeight(.semibold)
                     .border(.slate200, rounded: .medium)
                     .foregroundStyle(.slate900)
                     .buttonStyle(.plain)
             }
-            .width(.full)
+            .fontWeight(.semibold)
+            .width(.full, alignment: .leading)
             Button {} label: {
                 Image(systemName: "heart.fill")
             }
@@ -379,7 +378,7 @@ HStack {
     Form {
         HStack {
             Text("Kids Dress")
-                .width(.full)
+                .width(.full, alignment: .leading)
                 .fontWeight(.medium)
                 .foregroundStyle(.slate900)
             Text("In stock")
@@ -427,7 +426,6 @@ HStack {
                 Button("Buy now") {}
                     .height(.s10)
                     .padding(.horizontal, .s6)
-                    .fontWeight(.semibold)
                     .background(.violet600)
                     .foregroundStyle(.white)
                     .rounded(.full)
@@ -435,12 +433,12 @@ HStack {
                 Button("Add to bag") {}
                     .height(.s10)
                     .padding(.horizontal, .s6)
-                    .fontWeight(.semibold)
                     .border(.slate200, rounded: .full)
                     .foregroundStyle(.slate900)
                     .buttonStyle(.plain)
             }
-            .width(.full)
+            .fontWeight(.semibold)
+            .width(.full, alignment: .leading)
             Button {} label: {
                 Image(systemName: "heart.fill")
             }
@@ -462,4 +460,112 @@ HStack {
     .padding(.s6)
     .width(.full)
 }
+```
+
+![Elegant](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/caa20d48-3784-4dd4-a74f-710306946318)
+
+**Elegant**
+
+<img width="499" alt="Screenshot 2024-03-18 at 7 53 25 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/73aa06fb-37f2-4d42-b936-2dfe93c02abb">
+
+```swift
+HStack {
+    AsyncImage(url: .init(string: "https://images.unsplash.com/photo-1559034750-cdab70a66b8e")) { image in
+        image
+            .resizable()
+            .scaledToFill()
+    } placeholder: {
+        ProgressView()
+    }
+    .width(.s52)
+    .height(.full)
+    .clipped()
+    Form {
+        Text("Formal Strapless Gown")
+            .text(.extraLarge2, leading: nil)
+            .padding(.bottom, .s3)
+            .foregroundStyle(.slate900)
+        HStack(alignment: .firstTextBaseline) {
+            Text("$350.00")
+                .width(.full, alignment: .leading)
+                .text(.large)
+                .fontWeight(.medium)
+                .foregroundStyle(.slate500)
+            Text("In stock")
+                .text(.extraSmall, leading: .s6)
+                .fontWeight(.medium)
+                .textCase(.uppercase)
+                .foregroundStyle(.slate500)
+        }
+        HStack(alignment: .firstTextBaseline, spacing: .scale(.s1)) {
+            ForEach(["XS", "S", "M", "L", "XL"], id: \.self) { size in
+                Button {
+                    selectedSize = size
+                } label: {
+                    Text(size)
+                        .width(.s7)
+                        .height(.s7)
+                        .if(selectedSize == size) { view in
+                            view
+                                .fontWeight(.medium)
+                                .background(.slate100)
+                                .foregroundStyle(.slate900)
+                        } or: { view in
+                            view
+                                .foregroundStyle(.slate500)
+                        }
+                        .rounded(.full)
+                }
+                .accessibilityLabel("\(size) size")
+                .accessibilityValue(selectedSize == size ? "selected" : "not selected")
+                .buttonStyle(.plain)
+            }
+        }
+        .text(.small)
+        .fontWeight(.medium)
+        .padding(.bottom, .s6)
+        .border(.slate200, .bottom)
+        .padding(.top, .s4)
+        .padding(.bottom, .s6)
+        HStack(spacing: .scale(.s4)) {
+            HStack(spacing: .scale(.s4)) {
+                Button("Buy now") {}
+                    .width(.full)
+                    .height(.s12)
+                    .background(.slate900)
+                    .foregroundStyle(.white)
+                    .buttonStyle(.plain)
+                Button("Add to bag") {}
+                    .width(.full)
+                    .height(.s12)
+                    .border(.slate200)
+                    .foregroundStyle(.slate900)
+                    .buttonStyle(.plain)
+            }
+            .textCase(.uppercase)
+            .fontWeight(.medium)
+            .kerning(.wider)
+            .width(.full)
+            .padding(.trailing, .s4)
+            Button {} label: {
+                Image(systemName: "heart.fill")
+            }
+            .width(.s12)
+            .height(.s12)
+            .foregroundStyle(.slate300)
+            .border(.slate200)
+            .accessibilityLabel("Like")
+            .buttonStyle(.plain)
+        }
+        .padding(.bottom, .s5)
+        .text(.small)
+        .fontWeight(.medium)
+        Text("Free shipping on all continental US orders.")
+            .text(.small)
+            .foregroundStyle(.slate500)
+    }
+    .padding(.s6)
+    .width(.full)
+}
+.fontDesign(.serif)
 ```
