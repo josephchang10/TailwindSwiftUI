@@ -79,17 +79,21 @@ public struct Typography: ViewModifier {
     }
     
     let fontSize: FontSize
+    let lineHeight: CGFloat?
     
     public func body(content: Content) -> some View {
         content
             .font(.system(size: fontSize.fontSize))
-            .if(fontSize.lineHeight != nil, .lineHeight(fontSize.lineHeight!, fontSize: fontSize.fontSize))
+            .if(lineHeight != nil, transform: { view in
+                view
+                    .lineHeight(lineHeight!, fontSize: fontSize.fontSize)
+            })
     }
 }
 
 public extension ViewModifier where Self == Typography {
     static func text(_ fontSize: Typography.FontSize) -> Self {
-        Self(fontSize: fontSize)
+        Self(fontSize: fontSize, lineHeight: fontSize.lineHeight)
     }
 }
 

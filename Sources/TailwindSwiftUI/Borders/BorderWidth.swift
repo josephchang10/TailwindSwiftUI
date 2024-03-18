@@ -30,7 +30,7 @@ public extension View {
         overlay(EdgeBorder(width: 1, edges: edges))
     }
     
-    func border(_ content: some ShapeStyle = .black, _ edges: Edge.Set) -> some View {
-        overlay(EdgeBorder(width: 1, edges: edges).fill(content))
+    func border(_ content: some ShapeStyle = .black, _ edges: Edge.Set, width: CGFloat = 1) -> some View {
+        overlay(EdgeBorder(width: width, edges: edges).fill(content))
     }
 }

@@ -28,14 +28,14 @@ struct SimpleView: View {
                         .text(.large)
                         .fontWeight(.semibold)
                         .foregroundStyle(.slate900)
-                        .width(.full)
+                        .width(.full, alignment: .leading)
                     Text("$110.00")
                         .text(.large)
                         .fontWeight(.semibold)
                         .foregroundStyle(.slate500)
                 }
                 Text("In stock")
-                    .width(.full)
+                    .width(.full, alignment: .leading)
                     .text(.small)
                     .fontWeight(.medium)
                     .foregroundStyle(.slate700)
@@ -74,7 +74,6 @@ struct SimpleView: View {
                         Button("Buy now") {}
                             .height(.s10)
                             .padding(.horizontal, .s6)
-                            .fontWeight(.semibold)
                             .background(.black)
                             .foregroundStyle(.white)
                             .rounded(.medium)
@@ -82,12 +81,12 @@ struct SimpleView: View {
                         Button("Add to bag") {}
                             .height(.s10)
                             .padding(.horizontal, .s6)
-                            .fontWeight(.semibold)
                             .border(.slate200, rounded: .medium)
                             .foregroundStyle(.slate900)
                             .buttonStyle(.plain)
                     }
-                    .width(.full)
+                    .fontWeight(.semibold)
+                    .width(.full, alignment: .leading)
                     Button {} label: {
                         Image(systemName: "heart.fill")
                     }

@@ -22,6 +22,19 @@ public extension Color {
     static let slate900 = named("slate-900")
     static let slate950 = named("slate-950")
     
+    // Teal
+    static let teal50 = named("teal-50")
+    static let teal100 = named("teal-100")
+    static let teal200 = named("teal-200")
+    static let teal300 = named("teal-300")
+    static let teal400 = named("teal-400")
+    static let teal500 = named("teal-500")
+    static let teal600 = named("teal-600")
+    static let teal700 = named("teal-700")
+    static let teal800 = named("teal-800")
+    static let teal900 = named("teal-900")
+    static let teal950 = named("teal-950")
+    
     // Sky
     static let sky50 = named("sky-50")
     static let sky100 = named("sky-100")
@@ -97,6 +110,19 @@ public extension ShapeStyle where Self == Color {
     static var slate800: Color { .slate800 }
     static var slate900: Color { .slate900 }
     static var slate950: Color { .slate950 }
+    
+    // Teal
+    static var teal50: Color { .teal50 }
+    static var teal100: Color { .teal100 }
+    static var teal200: Color { .teal200 }
+    static var teal300: Color { .teal300 }
+    static var teal400: Color { .teal400 }
+    static var teal500: Color { .teal500 }
+    static var teal600: Color { .teal600 }
+    static var teal700: Color { .teal700 }
+    static var teal800: Color { .teal800 }
+    static var teal900: Color { .teal900 }
+    static var teal950: Color { .teal950 }
     
     // Sky
     static var sky50: Color { .sky50 }

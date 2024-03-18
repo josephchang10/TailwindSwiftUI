@@ -31,10 +31,10 @@ public extension View {
         frame(width: .scale(scale))
     }
     
-    func width(_ scale: Width.WScale) -> some View {
+    func width(_ scale: Width.WScale, alignment: Alignment = .center) -> some View {
         switch scale {
         case .full:
-            frame(maxWidth: .infinity, alignment: .leading)
+            frame(maxWidth: .infinity, alignment: alignment)
         }
     }
 }
