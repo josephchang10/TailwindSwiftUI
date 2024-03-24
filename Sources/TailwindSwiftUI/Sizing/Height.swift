@@ -13,28 +13,29 @@ public struct Height: ViewModifier {
     }
     
     let scale: Scale
+    var alignment: Alignment = .center
     
     public func body(content: Content) -> some View {
         content
-            .height(scale)
+            .height(scale, alignment: alignment)
     }
 }
 
 public extension ViewModifier where Self == Height {
-    static func height(_ scale: Scale) -> Self {
-        Self(scale: scale)
+    static func height(_ scale: Scale, alignment: Alignment = .center) -> Self {
+        Self(scale: scale, alignment: alignment)
     }
 }
 
 public extension View {
-    func height(_ scale: Scale) -> some View {
-        frame(height: .scale(scale))
+    func height(_ scale: Scale, alignment: Alignment = .center) -> some View {
+        frame(height: .scale(scale), alignment: alignment)
     }
     
-    func height(_ scale: Height.HScale) -> some View {
+    func height(_ scale: Height.HScale, alignment: Alignment = .center) -> some View {
         switch scale {
         case .full:
-            frame(maxHeight: .infinity)
+            frame(maxHeight: .infinity, alignment: alignment)
         }
     }
 }

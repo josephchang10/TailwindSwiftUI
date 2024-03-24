@@ -48,7 +48,7 @@ struct SimpleView: View {
                             Text(size)
                                 .width(.s9)
                                 .height(.s9)
-                                .if(selectedSize == size) { view in
+                                .`if`(selectedSize == size) { view in
                                     view
                                         .fontWeight(.medium)
                                         .background(.slate900)

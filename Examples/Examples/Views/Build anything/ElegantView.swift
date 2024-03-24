@@ -1,5 +1,5 @@
 //
-//  PlayfulView.swift
+//  ElegantView.swift
 //  Examples
 //
 //  Created by Jiafu Zhang on 3/17/24.
@@ -7,53 +7,54 @@
 
 import SwiftUI
 
-struct PlayfulView: View {
+struct ElegantView: View {
     @State private var selectedSize: String = "XS"
     
     var body: some View {
         HStack {
-            AsyncImage(url: .init(string: "https://images.unsplash.com/photo-1568385247005-0d371d214a2c")) { image in
+            AsyncImage(url: .init(string: "https://images.unsplash.com/photo-1559034750-cdab70a66b8e")) { image in
                 image
                     .resizable()
                     .scaledToFill()
             } placeholder: {
                 ProgressView()
             }
-            .width(.s56)
+            .width(.s52)
             .height(.full)
-            .rounded(.large)
+            .clipped()
             Form {
-                HStack {
-                    Text("Kids Dress")
+                Text("Formal Strapless Gown")
+                    .text(.extraLarge2, leading: nil)
+                    .padding(.bottom, .s3)
+                    .foregroundStyle(.slate900)
+                HStack(alignment: .firstTextBaseline) {
+                    Text("$350.00")
                         .width(.full, alignment: .leading)
+                        .text(.large)
                         .fontWeight(.medium)
-                        .foregroundStyle(.slate900)
+                        .foregroundStyle(.slate500)
                     Text("In stock")
-                        .text(.small)
+                        .text(.extraSmall, leading: .s6)
                         .fontWeight(.medium)
-                        .foregroundStyle(.slate400)
+                        .textCase(.uppercase)
+                        .foregroundStyle(.slate500)
                 }
-                Text("$39.00")
-                    .padding(.top, .s2)
-                    .text(.extraLarge3)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.violet600)
-                HStack(alignment: .firstTextBaseline, spacing: .scale(.s2)) {
+                HStack(alignment: .firstTextBaseline, spacing: .scale(.s1)) {
                     ForEach(["XS", "S", "M", "L", "XL"], id: \.self) { size in
                         Button {
                             selectedSize = size
                         } label: {
                             Text(size)
-                                .width(.s9)
-                                .height(.s9)
-                                .if(selectedSize == size) { view in
+                                .width(.s7)
+                                .height(.s7)
+                                .`if`(selectedSize == size) { view in
                                     view
                                         .fontWeight(.medium)
-                                        .background(.violet600)
-                                        .foregroundStyle(.white)
+                                        .background(.slate100)
+                                        .foregroundStyle(.slate900)
                                 } or: { view in
                                     view
-                                        .foregroundStyle(.violet400)
+                                        .foregroundStyle(.slate500)
                                 }
                                 .rounded(.full)
                         }
@@ -63,7 +64,7 @@ struct PlayfulView: View {
                     }
                 }
                 .text(.small)
-                .fontWeight(.bold)
+                .fontWeight(.medium)
                 .padding(.bottom, .s6)
                 .border(.slate200, .bottom)
                 .padding(.top, .s4)
@@ -71,29 +72,30 @@ struct PlayfulView: View {
                 HStack(spacing: .scale(.s4)) {
                     HStack(spacing: .scale(.s4)) {
                         Button("Buy now") {}
-                            .height(.s10)
-                            .padding(.horizontal, .s6)
-                            .background(.violet600)
+                            .width(.full)
+                            .height(.s12)
+                            .background(.slate900)
                             .foregroundStyle(.white)
-                            .rounded(.full)
                             .buttonStyle(.plain)
                         Button("Add to bag") {}
-                            .height(.s10)
-                            .padding(.horizontal, .s6)
-                            .border(.slate200, rounded: .full)
+                            .width(.full)
+                            .height(.s12)
+                            .border(.slate200)
                             .foregroundStyle(.slate900)
                             .buttonStyle(.plain)
                     }
-                    .fontWeight(.semibold)
-                    .width(.full, alignment: .leading)
+                    .textCase(.uppercase)
+                    .fontWeight(.medium)
+                    .kerning(.wider)
+                    .width(.full)
+                    .padding(.trailing, .s4)
                     Button {} label: {
                         Image(systemName: "heart.fill")
                     }
-                    .width(.s9)
-                    .height(.s9)
-                    .foregroundStyle(.violet600)
-                    .background(.violet50)
-                    .rounded(.full)
+                    .width(.s12)
+                    .height(.s12)
+                    .foregroundStyle(.slate300)
+                    .border(.slate200)
                     .accessibilityLabel("Like")
                     .buttonStyle(.plain)
                 }
@@ -107,13 +109,13 @@ struct PlayfulView: View {
             .padding(.s6)
             .width(.full)
         }
+        .fontDesign(.serif)
         .background(.white)
-        .rounded(.large)
         .frame(width: 500)
         .padding()
     }
 }
 
 #Preview {
-    PlayfulView()
+    ElegantView()
 }

@@ -22,6 +22,7 @@
 		7C26EDA22BA695270054ED15 /* SimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26EDA12BA695270054ED15 /* SimpleView.swift */; };
 		7C26EDA62BA6C1E70054ED15 /* PlayfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26EDA52BA6C1E70054ED15 /* PlayfulView.swift */; };
 		7C4CA11A2BA86AED002124B3 /* BrutalistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4CA1192BA86AED002124B3 /* BrutalistView.swift */; };
+		7C4CA11C2BA89112002124B3 /* MobileFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */; };
 		7CAC27292BA7111E001B9A5E /* ElegantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC27282BA7111E001B9A5E /* ElegantView.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		7C26EDA12BA695270054ED15 /* SimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleView.swift; sourceTree = "<group>"; };
 		7C26EDA52BA6C1E70054ED15 /* PlayfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayfulView.swift; sourceTree = "<group>"; };
 		7C4CA1192BA86AED002124B3 /* BrutalistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrutalistView.swift; sourceTree = "<group>"; };
+		7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileFirstView.swift; sourceTree = "<group>"; };
 		7CAC27282BA7111E001B9A5E /* ElegantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,10 +116,8 @@
 		7C26ED6A2BA433DE0054ED15 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				7C26EDA42BA6C1CA0054ED15 /* Constraint-based */,
-				7C26EDA32BA6C1AD0054ED15 /* Build anything */,
+				7C4CA11D2BA8911E002124B3 /* Views */,
 				7C26ED6B2BA433DE0054ED15 /* ExamplesApp.swift */,
-				7C26ED6D2BA433DE0054ED15 /* ContentView.swift */,
 				7C26ED6F2BA433DF0054ED15 /* Assets.xcassets */,
 				7C26ED712BA433DF0054ED15 /* Examples.entitlements */,
 				7C26ED722BA433DF0054ED15 /* Preview Content */,
@@ -177,6 +177,17 @@
 				7C26ED9F2BA5A1260054ED15 /* ShadowsView.swift */,
 			);
 			path = "Constraint-based";
+			sourceTree = "<group>";
+		};
+		7C4CA11D2BA8911E002124B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C26EDA42BA6C1CA0054ED15 /* Constraint-based */,
+				7C26EDA32BA6C1AD0054ED15 /* Build anything */,
+				7C26ED6D2BA433DE0054ED15 /* ContentView.swift */,
+				7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 				7C4CA11A2BA86AED002124B3 /* BrutalistView.swift in Sources */,
 				7CAC27292BA7111E001B9A5E /* ElegantView.swift in Sources */,
 				7C26ED9C2BA58ECB0054ED15 /* ColorsView.swift in Sources */,
+				7C4CA11C2BA89112002124B3 /* MobileFirstView.swift in Sources */,
 				7C26ED6E2BA433DE0054ED15 /* ContentView.swift in Sources */,
 				7C26ED9A2BA5800C0054ED15 /* SizingView.swift in Sources */,
 				7C26EDA62BA6C1E70054ED15 /* PlayfulView.swift in Sources */,

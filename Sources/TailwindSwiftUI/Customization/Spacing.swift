@@ -9,6 +9,7 @@ import SwiftUI
 
 public enum Scale {
     case s0
+    case px
     case s0_5
     case s1
     case s1_5
@@ -114,7 +115,7 @@ public enum Scale {
             return 80
         case .s96:
             return 96
-        case .auto:
+        default:
             return nil
         }
     }
@@ -124,6 +125,17 @@ public enum Scale {
             return nil
         }
         return value / 4
+    }
+    
+    var pixels: CGFloat? {
+        switch self {
+        case .px:
+            1
+        case .auto:
+            nil
+        default:
+            .rem(size!)
+        }
     }
 }
 
@@ -145,19 +157,24 @@ public struct Padding: ViewModifier {
     let scale: Scale
     
     public func body(content: Content) -> some View {
-        guard let size = scale.size else {
+        guard let pixels = scale.pixels else {
             return AnyView(content)
         }
-        return AnyView(content.padding(edges, .rem(size)))
+        return AnyView(content.padding(edges, pixels))
+    }
+    
+    public init(_ edges: Edge.Set, _ scale: Scale) {
+        self.edges = edges
+        self.scale = scale
     }
 }
 
 public extension ViewModifier where Self == Padding {
     static func padding(_ scale: Scale) -> Self {
-        Padding(edges: .all, scale: scale)
+        Padding(.all, scale)
     }
     
     static func padding(_ edges: Edge.Set = .all, _ scale: Scale) -> Self {
-        Padding(edges: edges, scale: scale)
+        Padding(edges, scale)
     }
 }

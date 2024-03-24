@@ -65,7 +65,7 @@ struct BrutalistView: View {
                             Text(size)
                                 .width(.s10)
                                 .height(.s10)
-                                .if(selectedSize == size) { view in
+                                .`if`(selectedSize == size) { view in
                                     view
                                         .background(.black)
                                         .foregroundStyle(.white)

@@ -25,9 +25,6 @@ public extension CGFloat {
     }
     
     static func scale(_ scale: Scale) -> Self? {
-        guard let size = scale.size else {
-            return nil
-        }
-        return Self.rem(size)
+        scale.pixels
     }
 }

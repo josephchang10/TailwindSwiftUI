@@ -27,3 +27,16 @@ public extension ViewModifier where Self == Frame {
         Self(minWidth: minWidth, idealWidth: idealWidth, maxWidth: maxWidth, minHeight: minHeight, idealHeight: idealHeight, maxHeight: maxHeight, alignment: alignment)
     }
 }
+
+public struct Hidden: ViewModifier {
+    public func body(content: Content) -> some View {
+        content
+            .hidden()
+    }
+}
+
+public extension ViewModifier where Self == Hidden {
+    static func hidden() -> Self {
+        Self()
+    }
+}

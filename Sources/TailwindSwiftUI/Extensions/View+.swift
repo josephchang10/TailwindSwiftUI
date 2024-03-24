@@ -16,7 +16,7 @@ public extension View {
         }
     }
     
-    @ViewBuilder func `if`<TrueContent: View, FalseContent: View>(_ condition: Bool, if ifTransform: (Self) -> TrueContent, or elseTransform: (Self) -> FalseContent) -> some View {
+    @ViewBuilder func `if`<TrueContent: View, FalseContent: View>(_ condition: Bool, then ifTransform: (Self) -> TrueContent, or elseTransform: (Self) -> FalseContent) -> some View {
         if condition {
             ifTransform(self)
         } else {

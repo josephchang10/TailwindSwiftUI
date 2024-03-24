@@ -1,6 +1,6 @@
 //
 //  Width.swift
-//  
+//
 //
 //  Created by Jiafu Zhang on 3/15/24.
 //
@@ -12,17 +12,30 @@ public struct Width: ViewModifier {
         case full
     }
     
-    let scale: Scale
+    var scale: Scale?
+    var wScale: WScale?
+    var alignment: Alignment = .center
     
     public func body(content: Content) -> some View {
-        content
-            .width(scale)
+        if let scale {
+            content
+                .width(scale)
+        } else if let wScale {
+            content
+                .width(wScale, alignment: alignment)
+        } else {
+            content
+        }
     }
 }
 
 public extension ViewModifier where Self == Width {
-    static func width(_ scale: Scale) -> Self {
-        Self(scale: scale)
+    static func width(_ scale: Scale, alignment: Alignment = .center) -> Self {
+        Self(scale: scale, alignment: alignment)
+    }
+    
+    static func width(_ scale: Width.WScale, alignment: Alignment = .center) -> Self {
+        Self(wScale: scale, alignment: alignment)
     }
 }
 
