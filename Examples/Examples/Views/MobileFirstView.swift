@@ -136,7 +136,7 @@ struct MobileFirstView: View {
                     Image("CabinRetreatInterior")
                     .resizable()
                 }
-                .col(span: 2)
+                .large(.col(span: 2), otherwise: .medium(.col(span: 1), otherwise: .col(span: 2)))
                 .small(.height(.s52), otherwise: .height(.s0))
                 .large(.height(.s32))
                 Object(.cover) {

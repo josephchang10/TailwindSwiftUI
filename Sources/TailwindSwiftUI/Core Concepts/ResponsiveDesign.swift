@@ -191,36 +191,36 @@ public extension View {
     //
     // Breakpoints are inspired by common device resolutions:
     
-    func small(_ modifier: some ViewModifier) -> AnyView {
-        AnyView(self.modifier(SmallViewModifier(modifier: modifier, otherwise: EmptyModifier())))
+    func small(_ modifier: some ViewModifier) -> some View {
+        self.modifier(SmallViewModifier(modifier: modifier, otherwise: EmptyModifier()))
     }
     
-    func small(_ modifier: some ViewModifier, otherwise otherModifier: some ViewModifier) -> AnyView {
-        AnyView(self.modifier(SmallViewModifier(modifier: modifier, otherwise: otherModifier)))
+    func small(_ modifier: some ViewModifier, otherwise otherModifier: some ViewModifier) -> some View {
+        self.modifier(SmallViewModifier(modifier: modifier, otherwise: otherModifier))
     }
     
-    func small(otherwise modifier: some ViewModifier) -> AnyView {
-        AnyView(self.modifier(SmallViewModifier(modifier: EmptyModifier(), otherwise: modifier)))
+    func small(otherwise modifier: some ViewModifier) -> some View {
+        self.modifier(SmallViewModifier(modifier: EmptyModifier(), otherwise: modifier))
     }
     
-    func medium(_ modifier: some ViewModifier) -> AnyView {
-        AnyView(self.modifier(MediumViewModifier(modifier: modifier, otherwise: EmptyModifier())))
+    func medium(_ modifier: some ViewModifier) -> some View {
+        self.modifier(MediumViewModifier(modifier: modifier, otherwise: EmptyModifier()))
     }
     
-    func medium(_ modifier: some ViewModifier, otherwise otherModifier: some ViewModifier) -> AnyView {
-        AnyView(self.modifier(MediumViewModifier(modifier: modifier, otherwise: otherModifier)))
+    func medium(_ modifier: some ViewModifier, otherwise otherModifier: some ViewModifier) -> some View {
+        self.modifier(MediumViewModifier(modifier: modifier, otherwise: otherModifier))
     }
     
-    func medium(otherwise modifier: some ViewModifier) -> AnyView {
-        AnyView(self.modifier(MediumViewModifier(modifier: EmptyModifier(), otherwise: modifier)))
+    func medium(otherwise modifier: some ViewModifier) -> some View {
+        self.modifier(MediumViewModifier(modifier: EmptyModifier(), otherwise: modifier))
     }
     
     func large(_ modifier: some ViewModifier) -> some View {
-        self.modifier(modifier)
+        self.modifier(LargeViewModifier(modifier: modifier, otherwise: EmptyModifier()))
     }
     
     func large(_ modifier: some ViewModifier, otherwise otherModifier: some ViewModifier) -> some View {
-        self.modifier(otherModifier)
+        self.modifier(LargeViewModifier(modifier: modifier, otherwise: otherModifier))
     }
 }
 
