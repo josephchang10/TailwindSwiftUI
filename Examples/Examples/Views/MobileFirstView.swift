@@ -79,10 +79,10 @@ struct MobileFirstView: View {
                         images
                     }
                 }
-                .medium(.padding(.vertical, .s10), otherwise: .padding(.vertical, .s6))
-                .medium(.padding(.horizontal, .s8), otherwise: .small(.padding(.horizontal, .s6), otherwise: .padding(.horizontal, .s4)))
-                .max(width: .extraLarge4)
+                .large(.max(width: .extraLarge5), otherwise: .max(width: .extraLarge4))
             }
+            .medium(.padding(.vertical, .s10), otherwise: .padding(.vertical, .s6))
+            .medium(.padding(.horizontal, .s8), otherwise: .small(.padding(.horizontal, .s6), otherwise: .padding(.horizontal, .s4)))
             .width(.full, alignment: .center)
         }
         .dark(.foregroundStyle(.slate400), otherwise: .foregroundStyle(.slate500))
