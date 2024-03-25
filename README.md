@@ -695,7 +695,6 @@ HStack {
 ```
 
 **Mobile-first**
-
 ## Responsive everything.
 Tailwind SwiftUI lets you build responsive designs right in your SwiftUI.
 
