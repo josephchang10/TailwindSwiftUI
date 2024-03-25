@@ -47,7 +47,6 @@ extension EnvironmentValues {
         get { self[BreakpointKey.self] }
         set {
             self[BreakpointKey.self] = newValue
-            print("Breakpoint: \(newValue)")
         }
     }
 }

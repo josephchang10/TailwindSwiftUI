@@ -123,7 +123,7 @@ struct MobileFirstView: View {
     }
     
     var images: some View {
-        GridView(smallCols: 4, gap: .s4, largeGap: .s6) {
+        GridView(smallCols: 4, .gap(.s4), large: .gap(.s6)) {
             Image("CabinRetreat")
                 .resizable()
                 .scaledToFill()
@@ -159,7 +159,7 @@ struct MobileFirstView: View {
 }
 
 #Preview {
-    GridView(smallCols: 4, gap: .s4) {
+    GridView(smallCols: 4, .gap(.s4)) {
         Image("CabinRetreat")
             .resizable()
             .scaledToFill()

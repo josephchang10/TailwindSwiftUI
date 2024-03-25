@@ -14,10 +14,14 @@ public struct GridLayout: Layout {
     }
     
     private let cols: Int
-    private let gap: Scale
+    private let gap: Gap
     
-    private var spacing: CGFloat {
-        .scale(gap) ?? 0
+    private var columnSpacing: CGFloat {
+        .scale(gap.column) ?? 0
+    }
+    
+    private var rowSpacing: CGFloat {
+        .scale(gap.row) ?? 0
     }
     
     public func makeCache(subviews: Subviews) -> Cache {
@@ -33,6 +37,11 @@ public struct GridLayout: Layout {
         var row = 1
         var rowHeight: CGFloat = 0
         var heights = [CGFloat]()
+        var proposal = proposal
+        if let width = proposal.width {
+            let spanWidth = (width - columnSpacing * CGFloat(cols - 1)) / CGFloat(cols)
+            proposal = .init(width: spanWidth, height: nil)
+        }
         subviews.indices.forEach { index in
             let subview = subviews[index]
             let end = startEnd(subview: subview, from: from).1
@@ -64,12 +73,13 @@ public struct GridLayout: Layout {
         }
         let width = proposal.width ?? 0
         let heights = cache.heights.filter { $0 > 0 }
-        let height = heights.reduce(.zero) { $0 + $1} + spacing * CGFloat(heights.count - 1)
+        let height = heights.reduce(.zero) { $0 + $1} + rowSpacing * CGFloat(heights.count - 1)
         return .init(width: width, height: height)
     }
     
     public func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) {
-        let spanWidth = (bounds.width - CGFloat(cols - 1) * spacing) / CGFloat(cols)
+        let spanWidth = (bounds.width - CGFloat(cols - 1) * columnSpacing) / CGFloat(cols)
+        print("column spacing: \(columnSpacing), span width: \(spanWidth)")
         var row = 0
         var spanHeight = cache.heights[row]
         var centerX: CGFloat = bounds.minX
@@ -79,9 +89,9 @@ public struct GridLayout: Layout {
             let subview = subviews[index]
             let (start, end) = startEnd(subview: subview, from: from)
             from = end + 1
-            centerX = CGFloat(start - 1) * (spanWidth + spacing)
+            centerX = CGFloat(start - 1) * (spanWidth + columnSpacing)
             let span = end - start + 1
-            let width = spanWidth * CGFloat(span) + CGFloat(span - 1) * spacing
+            let width = spanWidth * CGFloat(span) + CGFloat(span - 1) * columnSpacing
             centerX += width / 2 + bounds.minX
             subview.place(at: .init(x: centerX, y: centerY), anchor: .center, proposal: .init(width: width, height: spanHeight))
             if index != subviews.endIndex - 1 {
@@ -89,7 +99,7 @@ public struct GridLayout: Layout {
                 let (nextStart, nextEnd) = startEnd(subview: nextSubview, from: from)
                 if nextStart < end || nextEnd > cols {
                     if spanHeight > 0 {
-                        centerY += spanHeight / 2 + spacing
+                        centerY += spanHeight / 2 + rowSpacing
                     }
                     from = 1
                     row += 1
@@ -144,7 +154,7 @@ public struct GridLayout: Layout {
         return from - 1 + row * cols
     }
     
-    init(cols: Int, gap: Scale) {
+    init(cols: Int, gap: Gap) {
         self.cols = cols
         self.gap = gap
     }
@@ -155,19 +165,22 @@ public struct GridView<Content: View>: View {
     
     let defaultCols: Int
     let smallCols: Int?
-    let defaultGap: Scale
-    let largeGap: Scale?
+    let largeCols: Int?
+    let defaultGap: GridLayout.Gap
+    let largeGap: GridLayout.Gap?
     let content: Content
     
     private var cols: Int {
-        if let smallCols, breakpoint >= .small {
+        if let largeCols, breakpoint >= .large {
+            largeCols
+        } else if let smallCols, breakpoint >= .small {
             smallCols
         } else {
             defaultCols
         }
     }
     
-    private var gap: Scale {
+    private var gap: GridLayout.Gap {
         if let largeGap, breakpoint >= .large {
             largeGap
         } else {
@@ -181,24 +194,26 @@ public struct GridView<Content: View>: View {
         }
     }
     
-    public init(cols: Int = 1, smallCols: Int? = nil, gap: Scale = .s0, largeGap: Scale? = nil,  @ViewBuilder content: () -> Content) {
+    public init(cols: Int = 1, smallCols: Int? = nil, largeCols: Int? = nil, _ gap: GridLayout.Gap = .gap(.s0), large largeGap: GridLayout.Gap? = nil, @ViewBuilder content: () -> Content) {
         self.defaultCols = cols
         self.content = content()
         self.defaultGap = gap
         self.largeGap = largeGap
         self.smallCols = smallCols
+        self.largeCols = largeCols
     }
 }
 
 #Preview {
-    GridView {
+    GridView(cols: 2) {
         Text("This sunny and spacious room is for those traveling light and looking for a comfy and cosy place to lay their head for a night or two. This beach house sits in a vibrant neighborhood littered with cafes, pubs, restaurants and supermarkets and is close to all the major attractions such as Edinburgh Castle and Arthur's Seat.")
+        Rectangle()
     }
 }
 
 #Preview {
     ZStack {
-        GridLayout(cols: 4, gap: .s4) {
+        GridView(cols: 4, .gap(.s4)) {
             Group {
                 Text("01")
                 Text("02")
@@ -221,7 +236,7 @@ public struct GridView<Content: View>: View {
 }
 
 #Preview {
-    GridLayout(cols: 6, gap: .s4) {
+    GridView(cols: 6, .gap(.s4)) {
         Group {
             Text("01")
                 .col(span: 4)
@@ -247,7 +262,7 @@ public struct GridView<Content: View>: View {
 }
 
 #Preview {
-    GridLayout(cols: 3, gap: .s4) {
+    GridView(cols: 3, .gap(.s4)) {
         Group {
             Text("01")
             Text("02")
@@ -270,7 +285,7 @@ public struct GridView<Content: View>: View {
 }
 
 #Preview {
-    GridLayout(cols: 6, gap: .s4) {
+    GridView(cols: 6, .gap(.s4)) {
         Group {
             Text("01")
                 .col(span: 4)
@@ -291,7 +306,7 @@ public struct GridView<Content: View>: View {
 
 #Preview {
     Main {
-        GridView(smallCols: 4, gap: .s4) {
+        GridView(smallCols: 4, .gap(.s4)) {
             Group {
                 Text("01")
                     .col(span: .full)

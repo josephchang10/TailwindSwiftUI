@@ -79,7 +79,7 @@ public extension ViewModifier where Self == Col {
 //
 // Use the `.col(span: n)` view modifiers to make an element span n columns.
 #Preview {
-    GridLayout(cols: 3, gap: .s4) {
+    GridView(cols: 3, .gap(.s4)) {
         Group {
             Text("01")
             Text("02")
@@ -113,7 +113,7 @@ public extension ViewModifier where Self == Col {
 // full-width element in a 6-column grid would start at line 1
 // and end at line 7.
 #Preview {
-    GridLayout(cols: 6, gap: .s4) {
+    GridView(cols: 6, .gap(.s4)) {
         Group {
             Text("01")
                 .col(span: 4)

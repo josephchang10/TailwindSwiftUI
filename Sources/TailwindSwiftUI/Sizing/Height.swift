@@ -30,9 +30,6 @@ public extension ViewModifier where Self == Height {
 public extension View {
     func height(_ scale: Scale, alignment: Alignment = .center) -> some View {
         frame(height: .scale(scale), alignment: alignment)
-            .onAppear(perform: {
-                print("Height: \(scale)")
-            })
     }
     
     func height(_ scale: Height.HScale, alignment: Alignment = .center) -> some View {
