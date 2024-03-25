@@ -23,6 +23,7 @@
 		7C26EDA62BA6C1E70054ED15 /* PlayfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26EDA52BA6C1E70054ED15 /* PlayfulView.swift */; };
 		7C4CA11A2BA86AED002124B3 /* BrutalistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4CA1192BA86AED002124B3 /* BrutalistView.swift */; };
 		7C4CA11C2BA89112002124B3 /* MobileFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */; };
+		7CA9C64B2BB1682C00FE50B1 /* StateVariantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9C64A2BB1682C00FE50B1 /* StateVariantsView.swift */; };
 		7CAC27292BA7111E001B9A5E /* ElegantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC27282BA7111E001B9A5E /* ElegantView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		7C26EDA52BA6C1E70054ED15 /* PlayfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayfulView.swift; sourceTree = "<group>"; };
 		7C4CA1192BA86AED002124B3 /* BrutalistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrutalistView.swift; sourceTree = "<group>"; };
 		7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileFirstView.swift; sourceTree = "<group>"; };
+		7CA9C64A2BB1682C00FE50B1 /* StateVariantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateVariantsView.swift; sourceTree = "<group>"; };
 		7CAC27282BA7111E001B9A5E /* ElegantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElegantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 				7C26EDA32BA6C1AD0054ED15 /* Build anything */,
 				7C26ED6D2BA433DE0054ED15 /* ContentView.swift */,
 				7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */,
+				7CA9C64A2BB1682C00FE50B1 /* StateVariantsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				7C26ED9C2BA58ECB0054ED15 /* ColorsView.swift in Sources */,
 				7C4CA11C2BA89112002124B3 /* MobileFirstView.swift in Sources */,
 				7C26ED6E2BA433DE0054ED15 /* ContentView.swift in Sources */,
+				7CA9C64B2BB1682C00FE50B1 /* StateVariantsView.swift in Sources */,
 				7C26ED9A2BA5800C0054ED15 /* SizingView.swift in Sources */,
 				7C26EDA62BA6C1E70054ED15 /* PlayfulView.swift in Sources */,
 				7C26ED6C2BA433DE0054ED15 /* ExamplesApp.swift in Sources */,
