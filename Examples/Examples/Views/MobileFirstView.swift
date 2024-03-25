@@ -13,7 +13,7 @@ struct MobileFirstView: View {
         Main {
             ZStack {
                 HStack {
-                    VStack {
+                    GridView {
                         Large{} otherwise: {
                             ZStack {
                                 images

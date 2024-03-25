@@ -10,6 +10,7 @@ import SwiftUI
 public struct GridLayout: Layout {
     public struct Cache {
         var heights: [CGFloat]
+        var proposal: ProposedViewSize = .unspecified
     }
     
     private let cols: Int
@@ -20,14 +21,14 @@ public struct GridLayout: Layout {
     }
     
     public func makeCache(subviews: Subviews) -> Cache {
-        .init(heights: heights(subviews: subviews))
+        .init(heights: heights(subviews: subviews, proposal: .unspecified))
     }
     
     public func updateCache(_ cache: inout Cache, subviews: Subviews) {
-        cache.heights = heights(subviews: subviews)
+        cache.heights = heights(subviews: subviews, proposal: cache.proposal)
     }
     
-    private func heights(subviews: Subviews) -> [CGFloat] {
+    private func heights(subviews: Subviews, proposal: ProposedViewSize) -> [CGFloat] {
         var from = 1
         var row = 1
         var rowHeight: CGFloat = 0
@@ -36,7 +37,7 @@ public struct GridLayout: Layout {
             let subview = subviews[index]
             let end = startEnd(subview: subview, from: from).1
             from = end + 1
-            let colHeight = subview.sizeThatFits(.unspecified).height
+            let colHeight = subview.sizeThatFits(.init(width: proposal.width, height: nil)).height
             rowHeight = max(rowHeight, colHeight)
             if index != subviews.endIndex - 1 {
                 let nextSubview = subviews[index + 1]
@@ -52,11 +53,15 @@ public struct GridLayout: Layout {
                 heights.append(rowHeight)
             }
         }
-        print("heights: \(heights)")
         return heights
     }
     
     public func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) -> CGSize {
+        let proposedSize = proposal.replacingUnspecifiedDimensions()
+        if proposedSize.width > 0 && proposedSize.width < .infinity && cache.proposal != proposal {
+            cache.proposal = proposal
+            cache.heights = heights(subviews: subviews, proposal: proposal)
+        }
         let width = proposal.width ?? 0
         let heights = cache.heights.filter { $0 > 0 }
         let height = heights.reduce(.zero) { $0 + $1} + spacing * CGFloat(heights.count - 1)
@@ -64,7 +69,6 @@ public struct GridLayout: Layout {
     }
     
     public func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) {
-        print("placing subviews with cols \(cols)")
         let spanWidth = (bounds.width - CGFloat(cols - 1) * spacing) / CGFloat(cols)
         var row = 0
         var spanHeight = cache.heights[row]
@@ -183,6 +187,12 @@ public struct GridView<Content: View>: View {
         self.defaultGap = gap
         self.largeGap = largeGap
         self.smallCols = smallCols
+    }
+}
+
+#Preview {
+    GridView {
+        Text("This sunny and spacious room is for those traveling light and looking for a comfy and cosy place to lay their head for a night or two. This beach house sits in a vibrant neighborhood littered with cafes, pubs, restaurants and supermarkets and is close to all the major attractions such as Edinburgh Castle and Arthur's Seat.")
     }
 }
 
