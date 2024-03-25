@@ -75,6 +75,7 @@ struct MobileFirstView: View {
                             .width(.full, alignment: .leading)
                             .dark(.foregroundStyle(.slate400))
                     }
+                    .large(.padding(.trailing, .s20))
                     Large {
                         images
                     }
