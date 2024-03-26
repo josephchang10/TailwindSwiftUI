@@ -87,6 +87,21 @@ public extension Color {
     static let violet900 = named("violet-900")
     static let violet950 = named("violet-950")
     
+    // Pink
+    static let pink50 = named("pink-50")
+    static let pink100 = named("pink-100")
+    static let pink200 = named("pink-200")
+    static let pink300 = named("pink-300")
+    static let pink400 = named("pink-400")
+    static let pink500 = named("pink-500")
+    static let pink600 = named("pink-600")
+    static let pink700 = named("pink-700")
+    static let pink800 = named("pink-800")
+    static let pink900 = named("pink-900")
+    static let pink950 = named("pink-950")
+    
+    static let ring = named("ring")
+    
     // Helper function to get the Color from assets
     private static func named(_ name: String) -> Color {
         #if canImport(AppKit)
@@ -175,4 +190,17 @@ public extension ShapeStyle where Self == Color {
     static var violet800: Color { .violet800 }
     static var violet900: Color { .violet900 }
     static var violet950: Color { .violet950 }
+    
+    // Pink
+    static var pink50: Color { .pink50 }
+    static var pink100: Color { .pink100 }
+    static var pink200: Color { .pink200 }
+    static var pink300: Color { .pink300 }
+    static var pink400: Color { .pink400 }
+    static var pink500: Color { .pink500 }
+    static var pink600: Color { .pink600 }
+    static var pink700: Color { .pink700 }
+    static var pink800: Color { .pink800 }
+    static var pink900: Color { .pink900 }
+    static var pink950: Color { .pink950 }
 }

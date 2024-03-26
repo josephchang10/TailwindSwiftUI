@@ -38,12 +38,27 @@ public extension View {
     }
     
     func border(_ content: some ShapeStyle = .black, rounded size: BorderRadius.Size) -> some View {
-        overlay(RoundedRectangle(cornerRadius: size.cornerRadius).stroke(content))
+        clipShape(RoundedRectangle(cornerRadius: size.cornerRadius))
+            .overlay(RoundedRectangle(cornerRadius: size.cornerRadius).stroke(content))
     }
 }
 
 public extension ViewModifier where Self == BorderRadius {
     static func rounded(_ size: BorderRadius.Size = .notSpecific) -> Self {
         Self(size: size)
+    }
+}
+
+#Preview {
+    Button {} label: {
+        Text("Button A")
+            .padding(.horizontal, .s4)
+            .padding(.vertical, .s2)
+            .fontWeight(.semibold)
+            .text(.small)
+            .background(.red)
+            .foregroundStyle(.slate400)
+            .border(.green, rounded: .extraLarge3)
+            .shadow(.small)
     }
 }
