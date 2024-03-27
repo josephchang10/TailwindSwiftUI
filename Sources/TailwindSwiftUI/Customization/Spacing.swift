@@ -139,11 +139,77 @@ public enum Scale {
     }
 }
 
-public extension View {
-    func padding(_ scale: Scale) -> some View {
-        padding(.all, scale)
+public extension CGFloat {
+    static var s1_5: Self {
+        scale(.s1_5)!
     }
     
+    static var s2: Self {
+        scale(.s2)!
+    }
+    
+    static var s2_5: Self {
+        scale(.s2_5)!
+    }
+    
+    static var s3: Self {
+        scale(.s3)!
+    }
+    
+    static var s3_5: Self {
+        scale(.s3_5)!
+    }
+    
+    static var s4: Self {
+        scale(.s4)!
+    }
+    
+    static var s5: Self {
+        scale(.s5)!
+    }
+    
+    static var s6: Self {
+        scale(.s6)!
+    }
+    
+    static var s7: Self {
+        scale(.s7)!
+    }
+    
+    static var s8: Self {
+        scale(.s8)!
+    }
+    
+    static var s9: Self {
+        scale(.s9)!
+    }
+    
+    static var s10: Self {
+        scale(.s10)!
+    }
+    
+    static var s11: Self {
+        scale(.s11)!
+    }
+    
+    static var s12: Self {
+        scale(.s12)!
+    }
+    
+    static var s14: Self {
+        scale(.s14)!
+    }
+    
+    static var s16: Self {
+        scale(.s16)!
+    }
+    
+    static var s20: Self {
+        scale(.s20)!
+    }
+}
+
+public extension View {
     func padding(_ edges: Edge.Set = .all, _ scale: Scale) -> some View {
         guard let size = scale.size else {
             return AnyView(self)

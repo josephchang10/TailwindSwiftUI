@@ -16,8 +16,10 @@ public struct ForegroundStyle<T: ShapeStyle>: ViewModifier {
     }
 }
 
-public extension ViewModifier where Self == ForegroundStyle<Color> {
-    static func foregroundStyle<S>(_ style: S) -> ForegroundStyle<S> where S : ShapeStyle  {
-        ForegroundStyle(style: style)
+public extension ViewModifier where Self == AnyViewModifier {
+    static func foregroundStyle<S>(_ style: S) -> AnyViewModifier where S : ShapeStyle {
+        AnyViewModifier { view in
+            AnyView(view.foregroundStyle(style))
+        }
     }
 }

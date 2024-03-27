@@ -122,3 +122,9 @@ public extension View {
         modifier(.lineHeight(lineHeight, fontSize: fontSize))
     }
 }
+
+public extension Text {
+    func text(_ fontSize: Typography.FontSize) -> Text {
+        font(.system(size: fontSize.fontSize))
+    }
+}

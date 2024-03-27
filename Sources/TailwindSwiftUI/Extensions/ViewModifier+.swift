@@ -40,3 +40,18 @@ public extension ViewModifier where Self == Hidden {
         Self()
     }
 }
+
+public extension ViewModifier where Self == AnyViewModifier {
+    static func multiple(_ modifiers: [any ViewModifier]) -> AnyViewModifier {
+        AnyViewModifier { view in
+            modifiers.reduce(view) { view, modifier in
+                AnyView(view.modifier(AnyViewModifier(modifier)))
+            }
+        }
+    }
+}
+
+#Preview {
+    Text("Hello, World!")
+        .modifier(.multiple([.background(.blue), .foregroundStyle(.white)]))
+}

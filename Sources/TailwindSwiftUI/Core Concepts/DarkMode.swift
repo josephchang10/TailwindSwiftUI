@@ -31,7 +31,7 @@ public struct Background<S: ShapeStyle>: ViewModifier {
             .background(style)
     }
     
-    init(style: S) {
+    public init(style: S) {
         self.style = style
     }
 }
@@ -46,9 +46,11 @@ public extension View {
     }
 }
 
-public extension ViewModifier where Self == Dark<Background<Color>, Background<Color>> {
-    static func background<S>(_ style: S) -> Background<S> where S : ShapeStyle {
-        Background(style: style)
+public extension ViewModifier where Self == AnyViewModifier {
+    static func background<S>(_ style: S) -> AnyViewModifier where S : ShapeStyle {
+        AnyViewModifier { view in
+            AnyView(view.background(style))
+        }
     }
 }
 

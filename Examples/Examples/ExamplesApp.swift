@@ -12,8 +12,8 @@ import TailwindSwiftUI
 struct ExamplesApp: App {
     var body: some Scene {
         WindowGroup {
-            StateVariantsView()
-//                .main()
+            ContentView()
+                .main()
         }
     }
 }

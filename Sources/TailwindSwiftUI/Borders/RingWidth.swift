@@ -28,10 +28,10 @@ public struct Ring<S: ShapeStyle, O: ShapeStyle>: ViewModifier {
                 RoundedRectangle(cornerRadius: roundedSize.cornerRadius)
                     .stroke(offset.content, lineWidth: offset.width.rawValue)
             }
-            .padding(offset.width.rawValue + thickness.rawValue / 2)
             .overlay {
                 RoundedRectangle(cornerRadius: roundedSize.cornerRadius)
                     .stroke(self.content, lineWidth: thickness.rawValue)
+                    .padding(offset.width.rawValue + thickness.rawValue / 2)
             }
     }
 }
