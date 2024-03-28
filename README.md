@@ -694,6 +694,8 @@ HStack {
 .fontDesign(.monospaced)
 ```
 
+![mobile-first b61c76c9](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/050573ea-32cd-491c-b28d-0787c882fc57)
+
 **Mobile-first**
 ## Responsive everything.
 Tailwind SwiftUI lets you build responsive designs right in your SwiftUI.
@@ -860,6 +862,8 @@ var images: some View {
 }
 ```
 
+![state-variants 85fa7325](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/17d5fa66-6f19-493f-9880-5157ec87a18d)
+
 **State variants**
 
 ## Hover and focus states? We got'em.
@@ -1003,4 +1007,256 @@ List {
 }
 .background(.slate50)
 .foregroundStyle(.slate500)
+```
+
+![component-driven 82a66c3c](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/885a32e1-6e20-44ef-8454-1cd8d369c529)
+
+**Component-driven**
+
+## Worried about duplication? Don’t be.
+
+<img width="571" alt="image" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/c52a4d78-e7b9-474f-a12b-86996ebe9920">
+
+MoviesView.swift
+
+---
+```swift
+import SwiftUI
+import TailwindSwiftUI
+
+struct Movie {
+    let id = UUID()
+    let image: String
+    let title: String
+    let starRating: Float
+    let rating: String
+    let year: Int
+    let genre: String
+    let runTime: Int
+    let cast: String
+}
+
+struct MoviesView: View {
+    let movies = [
+        Movie(
+            image: "1960-Ocean’s-11-advertising-movie-poster-1170x1715",
+            title: "Ocean's Eleven",
+            starRating: 6.5,
+            rating: "Approved",
+            year: 1960,
+            genre: "Comedy",
+            runTime: 127,
+            cast: "Frank Sinatra, Dean Martin, Sammy Davis Jr."
+        ),
+        Movie(
+            image: "Vertigo-Alfred-Hitchcock-1958-1170x1700",
+            title: "Vertigo",
+            starRating: 8.3,
+            rating: "PG",
+            year: 1958,
+            genre: "Mystery",
+            runTime: 128,
+            cast: "James Stewart, Kim Novak, Barbara Bel Geddes"
+        ),
+        Movie(
+            image: "Big-Jake-Vintage-Film-Poster-1971",
+            title: "Big Jake",
+            starRating: 7.1,
+            rating: "PG-13",
+            year: 1971,
+            genre: "Drama",
+            runTime: 110,
+            cast: "John Wayne, Richard Boone, Maureen O'Hara"
+        )
+    ]
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Divide(.slate100) {
+                NavigationView {
+                    NavigationItem(url: .init(string: "/new")!, isActive: true) {
+                        Text("New Releases")
+                    }
+                    NavigationItem(url: .init(string: "/top")!, isActive: false) {
+                        Text("Top Rated")
+                    }
+                    NavigationItem(url: .init(string: "/picks")!, isActive: false) {
+                        Text("Vincent's Picks")
+                    }
+                }
+                ListView {
+                    ForEach(movies, id: \.id) { movie in
+                        ListItem(movie: movie)
+                    }
+                }
+            }
+        }
+        .foregroundStyle(.slate500)
+        .background(.white)
+    }
+}
+```
+
+NavigationView.swift
+
+---
+
+```swift
+import SwiftUI
+
+struct NavigationView<Content: View>: View {
+    let content: Content
+    
+    var body: some View {
+        ScrollView(.horizontal) {
+            HStack(spacing: .s3) {
+                content
+            }
+        }
+        .padding(.all, .s6)
+        .text(.small)
+        .fontWeight(.medium)
+    }
+    
+    init(@ViewBuilder _ content: () -> Content) {
+        self.content = content()
+    }
+}
+```
+
+NavigationItem.swift
+
+---
+
+```swift
+import SwiftUI
+
+struct NavigationItem<Content: View>: View {
+    let url: URL
+    let isActive: Bool
+    let content: Content
+    
+    var body: some View {
+        Link(destination: url) {
+            content
+        }
+        .padding(.horizontal, .s3)
+        .padding(.vertical, .s2)
+        .if(isActive) { view in
+            view
+                .background(.sky500)
+                .foregroundStyle(.white)
+        } or: { view in
+            view
+                .background(.slate50)
+        }
+        .rounded(.medium)
+        .cursorPointer()
+    }
+    
+    init(url: URL, isActive: Bool, @ViewBuilder _ content: () -> Content) {
+        self.url = url
+        self.isActive = isActive
+        self.content = content()
+    }
+}
+```
+
+ListView.swift
+
+---
+
+```swift
+import SwiftUI
+
+struct ListView<Content: View>: View {
+    let content: Content
+    
+    var body: some View {
+        List {
+            content
+                .listRowSeparatorTint(.slate100)
+        }
+        .listStyle(.plain)
+    }
+    
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+}
+```
+
+ListItem.swift
+
+---
+
+```swift
+import SwiftUI
+
+struct ListItem: View {
+    let movie: Movie
+    
+    var body: some View {
+        HStack(spacing: .s6) {
+            Image(movie.image)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 60, height: 88)
+                .background(.slate100)
+                .rounded(.medium)
+            VStack(alignment: .leading, spacing: 0) {
+                HStack {
+                    Text(movie.title)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.slate900)
+                        .padding(.trailing, .s20)
+                    Spacer()
+                    HStack(spacing: .s1) {
+                        Image(systemName: "star.fill")
+                            .foregroundStyle(.sky500)
+                        Text(movie.starRating.description)
+                    }
+                }
+                HStack(spacing: 0) {
+                    Text(movie.rating)
+                        .accessibilityLabel("Rating")
+                        .padding(.s1_5)
+                        .ring(.slate200, thickness: .t1, rounded: .notSpecific)
+                    Text(movie.year.description)
+                        .accessibilityLabel("Year")
+                        .padding(.leading, .s2)
+                    HStack(spacing: 0) {
+                        Circle()
+                            .frame(width: 2)
+                            .padding(.horizontal, .s2)
+                            .foregroundStyle(.slate300)
+                            .accessibilityHidden(true)
+                        Text(movie.genre)
+                    }
+                    .accessibilityLabel("Genre")
+                    HStack(spacing: 0) {
+                        Circle()
+                            .frame(width: 2)
+                            .padding(.horizontal, .s2)
+                            .foregroundStyle(.slate300)
+                            .accessibilityHidden(true)
+                        Text(String(format: "%dh %dm", movie.runTime / 60, movie.runTime % 60))
+                    }
+                    .accessibilityLabel("Runtime")
+                }
+                .padding(.top, .s2)
+                .text(.small, leading: 6)
+                .fontWeight(.medium)
+                Text(movie.cast)
+                    .padding(.top, .s2)
+                    .font(.body)
+                    .accessibilityLabel("Cast")
+                    .foregroundStyle(.slate400)
+            }
+            .frame(minWidth: 0)
+        }
+        .padding(.s6)
+    }
+}
 ```
