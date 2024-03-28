@@ -41,12 +41,18 @@ public struct Border<S: ShapeStyle>: ViewModifier {
     
     public func body(content: Content) -> some View {
         let width = style == .double ? width / 3 : width
-        let border = EdgeBorder(width: width, edges: .all, style: style, cornerRadius: rounded.cornerRadius).fill(self.content)
+        let border = EdgeBorder(width: width, edges: edges, style: style, cornerRadius: rounded.cornerRadius).fill(self.content)
         var view = AnyView(content.overlay(border))
         if style == .double {
             view = AnyView(view.padding(width * 2).overlay(border))
         }
         return view
+    }
+}
+
+public extension ViewModifier where Self == AnyViewModifier {
+    static func border(_ content: some ShapeStyle, _ edges: Edge.Set = .all) -> Self {
+        AnyViewModifier(Border(content: content, width: 1, edges: edges))
     }
 }
 

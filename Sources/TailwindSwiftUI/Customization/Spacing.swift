@@ -140,6 +140,18 @@ public enum Scale {
 }
 
 public extension CGFloat {
+    static var s0: Self {
+        scale(.s0)!
+    }
+    
+    static var s0_5: Self {
+        scale(.s0_5)!
+    }
+    
+    static var s1: Self {
+        scale(.s1)!
+    }
+    
     static var s1_5: Self {
         scale(.s1_5)!
     }
