@@ -27,4 +27,12 @@ public extension CGFloat {
     static func scale(_ scale: Scale) -> Self? {
         scale.pixels
     }
+    
+    static func point(_ pixels: Self) -> Self {
+        if let scale = NSScreen.main?.backingScaleFactor {
+            pixels / scale
+        } else {
+            pixels
+        }
+    }
 }

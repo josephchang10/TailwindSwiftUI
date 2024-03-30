@@ -9,9 +9,11 @@ import SwiftUI
 
 public struct Width: ViewModifier {
     public enum WScale {
+        case half
         case full
     }
     
+    @State private var width: CGFloat?
     var scale: Scale?
     var wScale: WScale?
     var alignment: Alignment = .center
@@ -21,8 +23,24 @@ public struct Width: ViewModifier {
             content
                 .width(scale)
         } else if let wScale {
-            content
-                .width(wScale, alignment: alignment)
+            switch wScale {
+            case .half:
+                content
+                    .frame(width: width != nil ? width! / 2 : nil, alignment: alignment)
+                    .overlay {
+                        if wScale == .half {
+                            GeometryReader { proxy in
+                                Color.clear
+                                    .onAppear {
+                                        width = proxy.size.width
+                                    }
+                            }
+                        }
+                    }
+            case .full:
+                content
+                    .frame(maxWidth: .infinity, alignment: alignment)
+            }
         } else {
             content
         }
@@ -45,9 +63,6 @@ public extension View {
     }
     
     func width(_ scale: Width.WScale, alignment: Alignment = .center) -> some View {
-        switch scale {
-        case .full:
-            frame(maxWidth: .infinity, alignment: alignment)
-        }
+        modifier(Width(wScale: scale, alignment: alignment))
     }
 }

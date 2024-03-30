@@ -31,6 +31,7 @@
 		7CB477C02BB54C3A003EAE51 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477BF2BB54C3A003EAE51 /* ListView.swift */; };
 		7CB477C22BB54D72003EAE51 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477C12BB54D72003EAE51 /* ListItem.swift */; };
 		7CB477C42BB582DD003EAE51 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477C32BB582DD003EAE51 /* Movie.swift */; };
+		7CB477C62BB58DB3003EAE51 /* DarkModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477C52BB58DB3003EAE51 /* DarkModeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		7CB477BF2BB54C3A003EAE51 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		7CB477C12BB54D72003EAE51 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		7CB477C32BB582DD003EAE51 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7CB477C52BB58DB3003EAE51 /* DarkModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				7C26ED6D2BA433DE0054ED15 /* ContentView.swift */,
 				7C4CA11B2BA89112002124B3 /* MobileFirstView.swift */,
 				7CA9C64A2BB1682C00FE50B1 /* StateVariantsView.swift */,
+				7CB477C52BB58DB3003EAE51 /* DarkModeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				7C26EDA62BA6C1E70054ED15 /* PlayfulView.swift in Sources */,
 				7CB477C22BB54D72003EAE51 /* ListItem.swift in Sources */,
 				7C26ED6C2BA433DE0054ED15 /* ExamplesApp.swift in Sources */,
+				7CB477C62BB58DB3003EAE51 /* DarkModeView.swift in Sources */,
 				7C26ED9E2BA59AA20054ED15 /* TypographyView.swift in Sources */,
 				7CB477BA2BB53E32003EAE51 /* MoviesView.swift in Sources */,
 				7C26EDA22BA695270054ED15 /* SimpleView.swift in Sources */,

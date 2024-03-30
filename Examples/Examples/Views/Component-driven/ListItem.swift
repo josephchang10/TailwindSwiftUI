@@ -36,7 +36,7 @@ struct ListItem: View {
                     Text(movie.rating)
                         .accessibilityLabel("Rating")
                         .padding(.s1_5)
-                        .ring(.slate200, thickness: .t1, rounded: .notSpecific)
+                        .ring(.slate200, thickness: .t1, rounded: .base)
                     Text(movie.year.description)
                         .accessibilityLabel("Year")
                         .padding(.leading, .s2)

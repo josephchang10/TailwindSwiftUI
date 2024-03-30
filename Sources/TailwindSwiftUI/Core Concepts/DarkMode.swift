@@ -8,7 +8,27 @@
 
 import SwiftUI
 
-public struct Dark<T: ViewModifier, U: ViewModifier>: ViewModifier {
+public struct Dark<Content: View, OtherContent: View>: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    let content: Content
+    let otherContent: OtherContent
+    
+    public var body: some View {
+        if colorScheme == .dark {
+            AnyView(content)
+        } else {
+            AnyView(otherContent)
+        }
+    }
+    
+    public init(@ViewBuilder content: () -> Content, @ViewBuilder otherwise otherContent: () -> OtherContent) {
+        self.content = content()
+        self.otherContent = otherContent()
+    }
+}
+
+public struct DarkViewModifier<T: ViewModifier, U: ViewModifier>: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
     let modifier: T
     let otherModifier: U?
@@ -38,11 +58,11 @@ public struct Background<S: ShapeStyle>: ViewModifier {
 
 public extension View {
     func dark<T: ViewModifier>(_ modifier: T) -> AnyView {
-        AnyView(self.modifier(Dark(modifier: modifier, otherModifier: EmptyModifier())))
+        AnyView(self.modifier(DarkViewModifier(modifier: modifier, otherModifier: EmptyModifier())))
     }
     
     func dark<T: ViewModifier, U: ViewModifier>(_ modifier: T, otherwise otherModifier: U) -> AnyView {
-        AnyView(self.modifier(Dark(modifier: modifier, otherModifier: otherModifier)))
+        AnyView(self.modifier(DarkViewModifier(modifier: modifier, otherModifier: otherModifier)))
     }
 }
 

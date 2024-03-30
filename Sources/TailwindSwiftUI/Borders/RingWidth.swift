@@ -21,6 +21,7 @@ public struct Ring<S: ShapeStyle, O: ShapeStyle>: ViewModifier {
     let thickness: RingThickness
     let offset: RingOffset<O>
     let roundedSize: BorderRadius.Size
+    let isInset: Bool
     
     public func body(content: Content) -> some View {
         content
@@ -31,9 +32,28 @@ public struct Ring<S: ShapeStyle, O: ShapeStyle>: ViewModifier {
             .overlay {
                 RoundedRectangle(cornerRadius: roundedSize.cornerRadius)
                     .stroke(self.content, lineWidth: thickness.rawValue)
-                    .padding(offset.width.rawValue + thickness.rawValue / 2)
+                    .padding(isInset ? -thickness.rawValue / 2 : -(offset.width.rawValue + thickness.rawValue / 2))
             }
     }
+}
+
+#Preview {
+    Dark {
+        Circle()
+            .fill(.cyan400)
+    } otherwise: {
+        Circle()
+            .fill(.cyan500)
+    }
+    .width(.s1_5)
+    .height(.s1_5)
+    .ring(.slate900 / 5, thickness: .t1, inset: true)
+    .width(.s4)
+    .height(.s4)
+    .background(.white)
+    .rounded(.full)
+    .ring(.cyan500, thickness: .t2, rounded: .full)
+    .padding()
 }
 
 public extension View {
@@ -45,18 +65,18 @@ public extension View {
     // element. Rings are a semi-transparent blue
     // color by default, similar to the default
     // focus ring style in many systems.
-    func ring<S: ShapeStyle, O: ShapeStyle>(_ content: S = Color.ring, thickness: RingThickness = .t3, offset: RingOffset<O> = .init(), rounded size: BorderRadius.Size = .none) -> some View {
-        modifier(Ring(content: content, thickness: thickness, offset: offset, roundedSize: size))
+    func ring<S: ShapeStyle, O: ShapeStyle>(_ content: S = Color.ring, thickness: RingThickness = .t3, inset: Bool = false, offset: RingOffset<O> = .init(), rounded size: BorderRadius.Size = .none) -> some View {
+        modifier(Ring(content: content, thickness: thickness, offset: offset, roundedSize: size, isInset: inset))
     }
     
-    func ring(isFocused: Bool, focus content: some ShapeStyle = Color.ring, thickness: RingThickness = .t3, otherwise otherContent: some ShapeStyle = .clear, thickness otherThickness: RingThickness = .t0, rounded size: BorderRadius.Size = .none) -> some View {
-        modifier(Ring(content: isFocused ? AnyShapeStyle(content) : AnyShapeStyle(otherContent), thickness: isFocused ? thickness : otherThickness, offset: .init(), roundedSize: size))
+    func ring(isFocused: Bool, focus content: some ShapeStyle = Color.ring, thickness: RingThickness = .t3, inset: Bool = false, otherwise otherContent: some ShapeStyle = .clear, thickness otherThickness: RingThickness = .t0, rounded size: BorderRadius.Size = .none) -> some View {
+        modifier(Ring(content: isFocused ? AnyShapeStyle(content) : AnyShapeStyle(otherContent), thickness: isFocused ? thickness : otherThickness, offset: .init(), roundedSize: size, isInset: inset))
     }
 }
 
 public extension ViewModifier where Self == Ring<Color, Color> {
-    static func ring(_ content: Color = .ring, thickness: RingThickness = .t3, offset: RingOffset<Color> = .init(), rounded size: BorderRadius.Size = .none) -> Self {
-        Self(content: content, thickness: thickness, offset: offset, roundedSize: size)
+    static func ring(_ content: Color = .ring, thickness: RingThickness = .t3, inset: Bool = false, offset: RingOffset<Color> = .init(), rounded size: BorderRadius.Size = .none) -> Self {
+        Self(content: content, thickness: thickness, offset: offset, roundedSize: size, isInset: inset)
     }
 }
 
@@ -101,4 +121,25 @@ public extension ViewModifier where Self == Ring<Color, Color> {
     }
     .buttonStyle(.plain)
     .padding(.s20)
+}
+
+// # Inset rings
+//
+// Use the `.ring(inset: true)` view modifier to force a ring to render on the inside of an element instead of the outside. This can be useful for elements at the edge of the screen where part of the ring won't be visible.
+
+#Preview {
+    Button{} label: {
+        Text("Save Changes")
+            .padding(.horizontal, .s4)
+            .padding(.vertical, .s2)
+            .fontWeight(.semibold)
+            .text(.small)
+            .background(.white)
+            .foregroundStyle(.slate700)
+            .rounded(.medium)
+    }
+    .buttonStyle(.plain)
+    .ring(.pink300, thickness: .t2, inset: true, rounded: .medium)
+    .padding()
+    .shadow(.small)
 }
