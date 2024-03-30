@@ -1382,3 +1382,147 @@ VStack(spacing: 0) {
     }
 }
 ```
+
+![modern-features 0c791977](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/46ef327c-cd3c-4ae8-a34f-907295b7fc7f)
+
+**Modern features**
+
+## Cutting-edge is our comfort zone.
+
+![Grid](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/616fd1d1-2888-4f00-8d1e-7485be763d52)
+
+**Grid**
+
+<img width="635" alt="Screenshot 2024-03-30 at 7 27 36 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/81970fb3-d359-4a0a-9832-eb4ace0b6e70">
+
+```swift
+GridView(cols: 3, .gap(.s8)) {
+    Group {
+        Image("mountains-1")
+            .resizable()
+            .scaledToFill()
+            .frame(height: 110)
+        Image("mountains-2")
+            .resizable()
+            .scaledToFill()
+            .frame(height: 110)
+            .col(start: 2)
+            .col(end: 4)
+        Image("mountains-3")
+            .resizable()
+            .scaledToFill()
+            .frame(height: 110)
+        Image("mountains-4")
+            .resizable()
+            .scaledToFill()
+            .frame(height: 110)
+        Image("mountains-5")
+            .resizable()
+            .scaledToFill()
+            .frame(height: 110)
+    }
+    .rounded(.large)
+    .shadow(.large)
+}
+```
+
+![Transforms](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/8212a33c-8c79-4b3f-a545-2e1d3cc1e085)
+
+**Transforms**
+
+<img width="570" alt="Screenshot 2024-03-30 at 7 31 21 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/d76c8fe6-6713-4a4c-867f-7581611472ba">
+
+```swift
+GridView(cols: 3, .gap(.s8)) {
+    Image("mountains-1")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .scaleEffect(1.1)
+        .rotationEffect(.degrees(-6))
+    Image("mountains-2")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .col(start: 2)
+        .col(end: 4)
+        .rounded(.large)
+        .shadow(.large)
+        .scaleEffect(0.75)
+        .offset(x: 80, y: 16)
+    Image("mountains-3")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .scaleEffect(x: 1.5, anchor: .trailing)
+        .offset(y: 44)
+    Image("mountains-4")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .offset(y: 96)
+    Image("mountains-5")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .offset(x: 8, y: 60)
+        .scaleEffect(0.75)
+        .rotationEffect(.degrees(6))
+}
+```
+
+![Filters](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/573cf33e-c3d7-4cd9-af9f-038170e94437)
+
+**Filters**
+
+<img width="635" alt="Screenshot 2024-03-30 at 7 33 44 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/6e3726bb-4059-4218-90f0-c5276f686afb">
+
+```swift
+GridView(cols: 3, .gap(.s8)) {
+    Image("mountains-1")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .blur()
+    Image("mountains-2")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .col(start: 2)
+        .col(end: 4)
+        .rounded(.large)
+        .shadow(.large)
+        .colorInvert()
+    Image("mountains-3")
+        .sepia()
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+    Image("mountains-4")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .grayscale()
+    Image("mountains-5")
+        .resizable()
+        .scaledToFill()
+        .frame(height: 110)
+        .rounded(.large)
+        .shadow(.large)
+        .saturation(2)
+}
+```
