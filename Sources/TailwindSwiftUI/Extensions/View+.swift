@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreImage.CIFilterBuiltins
 
 public extension View {
     @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
@@ -35,6 +36,31 @@ public extension View {
     func cursorPointer() -> some View {
         modifier(CursorPointer())
     }
+    
+    func blur() -> some View {
+        blur(radius: 8)
+    }
+    
+    func grayscale() -> some View {
+        grayscale(1)
+    }
+    
+    @MainActor func sepia() -> some View {
+        let renderer = ImageRenderer(content: self)
+        let filter = CIFilter.sepiaTone()
+        guard let cgImage = renderer.cgImage else {
+            return AnyView(self)
+        }
+        filter.setValue(CIImage(cgImage: cgImage), forKey: kCIInputImageKey)
+        guard let outputImage = filter.outputImage else {
+            return AnyView(self)
+        }
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
+            return AnyView(self)
+        }
+        return AnyView(Image(nsImage: NSImage(cgImage: cgImage, size: .zero)))
+    }
 }
 
 struct CursorPointer: ViewModifier {
@@ -55,4 +81,10 @@ struct CursorPointer: ViewModifier {
                 }
             }
     }
+}
+
+#Preview {
+    Text("Hello")
+        .foregroundStyle(.yellow)
+        .sepia()
 }
