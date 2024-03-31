@@ -36,6 +36,7 @@
 		7CB477CF2BB81202003EAE51 /* CSSGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477CE2BB81202003EAE51 /* CSSGridView.swift */; };
 		7CB477D12BB8158A003EAE51 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477D02BB8158A003EAE51 /* FiltersView.swift */; };
 		7CB477D42BB938DF003EAE51 /* InstallationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477D32BB938DF003EAE51 /* InstallationView.swift */; };
+		7CB477DA2BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477D92BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		7CB477CE2BB81202003EAE51 /* CSSGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSGridView.swift; sourceTree = "<group>"; };
 		7CB477D02BB8158A003EAE51 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		7CB477D32BB938DF003EAE51 /* InstallationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallationView.swift; sourceTree = "<group>"; };
+		7CB477D92BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFirstFundamentalsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 		7C4CA11D2BA8911E002124B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7CB477D62BB93B84003EAE51 /* Core Concepts */,
 				7CB477D22BB938C3003EAE51 /* Getting Started */,
 				7CB477CB2BB80ED1003EAE51 /* Modern features */,
 				7CB477B82BB53E12003EAE51 /* Component-driven */,
@@ -248,6 +251,14 @@
 				7CB477D32BB938DF003EAE51 /* InstallationView.swift */,
 			);
 			path = "Getting Started";
+			sourceTree = "<group>";
+		};
+		7CB477D62BB93B84003EAE51 /* Core Concepts */ = {
+			isa = PBXGroup;
+			children = (
+				7CB477D92BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift */,
+			);
+			path = "Core Concepts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +403,7 @@
 				7C4CA11A2BA86AED002124B3 /* BrutalistView.swift in Sources */,
 				7CAC27292BA7111E001B9A5E /* ElegantView.swift in Sources */,
 				7CB477D42BB938DF003EAE51 /* InstallationView.swift in Sources */,
+				7CB477DA2BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift in Sources */,
 				7C26ED9C2BA58ECB0054ED15 /* ColorsView.swift in Sources */,
 				7C4CA11C2BA89112002124B3 /* MobileFirstView.swift in Sources */,
 				7CB477BE2BB5484C003EAE51 /* NavigationItem.swift in Sources */,

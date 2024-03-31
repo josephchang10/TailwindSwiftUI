@@ -9,8 +9,18 @@ import SwiftUI
 
 public struct Width: ViewModifier {
     public enum WScale {
-        case half
+        case small
         case full
+        case half
+        
+        var size: CGFloat? {
+            switch self {
+            case .small:
+                24
+            default:
+                nil
+            }
+        }
     }
     
     @State private var width: CGFloat?
@@ -40,6 +50,9 @@ public struct Width: ViewModifier {
             case .full:
                 content
                     .frame(maxWidth: .infinity, alignment: alignment)
+            default:
+                content
+                    .frame(maxWidth: wScale.size, alignment: alignment)
             }
         } else {
             content
