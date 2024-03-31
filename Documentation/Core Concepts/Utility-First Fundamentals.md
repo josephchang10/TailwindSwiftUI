@@ -8,6 +8,8 @@ Traditionally, whenever you need to style something on the SwiftUI, you write vi
 
 **❌ Using a traditional approach where custom designs require custom values.**
 
+<img width="420" alt="Screenshot 2024-03-31 at 4 37 29 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/585936cf-ca12-4bbc-9d6e-d4fe1b441b4c">
+
 ```swift
 HStack(spacing: 13) {
     Image("logo")
@@ -33,6 +35,8 @@ HStack(spacing: 13) {
 With TailwindSwiftUI, you style elements by applying pre-existing view modifiers directly in your SwiftUI.
 
 **✅ Using utility view modifiers to build custom designs without writing values**
+
+<img width="427" alt="Screenshot 2024-03-31 at 4 05 07 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/26e2b3a2-5e62-4a41-94c4-ec0a8e51138b">
 
 ```swift
 HStack(spacing: .s4) {
