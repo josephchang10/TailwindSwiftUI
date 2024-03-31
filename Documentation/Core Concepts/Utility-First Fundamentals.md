@@ -84,3 +84,15 @@ In the example above, we've used:
 * The **border radius**, and **box-shadow** utilities (`.rounded(.extraLarge)`, `.shadow(.large)`) to style the card's appearance
 
 * The **width** and **height** utilities (`.width(.s12)`, `.height(.s12)`) to size the logo image
+
+* The **spacing** utilities (`spacing: .s4`) to handle the spacing between the logo and the text
+
+* The **font size** utilities (`.text(.extraLarge)`) to style the card text
+
+This approach allows us to implement a completely custom component design without writing a single custom value.
+
+Now I know what you're thinking, *"this is an atrocity, what a horrible mess!"* and you're right, it's kind of ugly. In fact it's just about impossible to think this is a good idea the first time you see it -- **you have to actually try it**.
+
+But once you've actually built something this way, you'll quickly notice some really important benefits.
+
+When you realize how productive you can be working exclusively in SwiftUI with predefined view modifiers, working any other way will feel like torture.
