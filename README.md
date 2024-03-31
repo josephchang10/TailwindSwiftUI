@@ -5,6 +5,8 @@ A utility-first Swift package packed with view modifiers that can be composed to
 <img width="890" alt="Screenshot 2024-03-16 at 3 12 35 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/23cbb02b-a76b-42e8-9e09-69c06e652859">
 <img width="485" alt="Screenshot 2024-03-16 at 3 13 45 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/14fb8f8a-439c-4d37-afc6-418f56a8aca8">
 
+**[Get started](Documentation/Getting Started/Installation.md)**
+
 ```
 Flex(.medium) {
     AsyncImage(
