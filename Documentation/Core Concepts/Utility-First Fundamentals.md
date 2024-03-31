@@ -13,6 +13,8 @@ Traditionally, whenever you need to style something on the SwiftUI, you write vi
 ```swift
 HStack(spacing: 13) {
     Image("logo")
+        .resizable()
+        .frame(width: 39, height: 39)
     VStack(alignment: .leading) {
         Text("ChitChat")
             .font(.system(size: 16.25))
@@ -28,8 +30,20 @@ HStack(spacing: 13) {
 .frame(maxWidth: 312)
 .background(.white)
 .clipShape(RoundedRectangle(cornerRadius: 10))
-.boxShadow(type: .color(c: .black.opacity(0.1)), radius: 15, offset: .init(x: 0, y: 10), spread: .init(width: -3, height: -3))
-.boxShadow(type: .color(c: .black.opacity(0.1)), radius: 6, offset: .init(x: 0, y: 4), spread: .init(width: -4, height: -4))
+.background {
+    Color.black.opacity(0.1)
+        .padding(.horizontal, 3)
+        .padding(.vertical, 3)
+        .offset(x: 0, y: 10)
+        .blur(radius: 15)
+}
+.background {
+    Color.black.opacity(0.1)
+        .padding(.horizontal, 4)
+        .padding(.vertical, 4)
+        .offset(x: 0, y: 4)
+        .blur(radius: 6)
+}
 ```
 
 With TailwindSwiftUI, you style elements by applying pre-existing view modifiers directly in your SwiftUI.
@@ -41,6 +55,9 @@ With TailwindSwiftUI, you style elements by applying pre-existing view modifiers
 ```swift
 HStack(spacing: .s4) {
     Image("logo")
+        .resizable()
+        .width(.s12)
+        .height(.s12)
     VStack(alignment: .leading) {
         Text("ChitChat")
             .text(.extraLarge)
@@ -57,3 +74,13 @@ HStack(spacing: .s4) {
 .rounded(.extraLarge)
 .shadow(.large)
 ```
+
+In the example above, we've used:
+
+* Tailwind SwiftUI's **padding** utilities (`.padding(.s6)`) to control the overall card layout
+
+* The **max-width** utilities (`.max(width:.small)`) to constrain the card width.
+
+* The **border radius**, and **box-shadow** utilities (`.rounded(.extraLarge)`, `.shadow(.large)`) to style the card's appearance
+
+* The **width** and **height** utilities (`.width(.s12)`, `.height(.s12)`) to size the logo image

@@ -11,6 +11,8 @@ struct TraditionalView: View {
     var body: some View {
         HStack(spacing: 13) {
             Image("logo")
+                .resizable()
+                .frame(width: 39, height: 39)
             VStack(alignment: .leading) {
                 Text("ChitChat")
                     .font(.system(size: 16.25))
@@ -26,8 +28,20 @@ struct TraditionalView: View {
         .frame(maxWidth: 312)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .boxShadow(type: .color(c: .black.opacity(0.1)), radius: 15, offset: .init(x: 0, y: 10), spread: .init(width: -3, height: -3))
-        .boxShadow(type: .color(c: .black.opacity(0.1)), radius: 6, offset: .init(x: 0, y: 4), spread: .init(width: -4, height: -4))
+        .background {
+            Color.black.opacity(0.1)
+                .padding(.horizontal, 3)
+                .padding(.vertical, 3)
+                .offset(x: 0, y: 10)
+                .blur(radius: 15)
+        }
+        .background {
+            Color.black.opacity(0.1)
+                .padding(.horizontal, 4)
+                .padding(.vertical, 4)
+                .offset(x: 0, y: 4)
+                .blur(radius: 6)
+        }
         .padding(65)
         .background(Color(red: 248 / 255, green: 250 / 255, blue: 252 / 255))
     }
@@ -41,6 +55,9 @@ struct UtilitiesView: View {
     var body: some View {
         HStack(spacing: .s4) {
             Image("logo")
+                .resizable()
+                .width(.s12)
+                .height(.s12)
             VStack(alignment: .leading) {
                 Text("ChitChat")
                     .text(.extraLarge)
