@@ -37,7 +37,7 @@ struct TraditionalView: View {
     TraditionalView()
 }
 
-struct ViewModifiersView: View {
+struct UtilitiesView: View {
     var body: some View {
         HStack(spacing: .s4) {
             Image("logo")
@@ -62,5 +62,5 @@ struct ViewModifiersView: View {
 }
 
 #Preview {
-    ViewModifiersView()
+    UtilitiesView()
 }
