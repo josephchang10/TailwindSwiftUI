@@ -78,6 +78,12 @@ In this guide you'll learn about every modifier available in the package, how to
 
 Style elements on hover and focus using the `.hover(_)`, `.focus(_)`, and `.buttonStyle(.active(_))` modifiers:
 
+![Default](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/256139cb-fd77-4e38-812b-f1c6fa6850c5)
+
+![Hover](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/7cda9bc9-da23-452a-9cf9-bfb32680b754)
+
+![Active](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/d8b9f555-9c50-4c75-9231-c3c04d446e85)
+
 ```swift
 Button {} label: {
     Text("Save changes")
