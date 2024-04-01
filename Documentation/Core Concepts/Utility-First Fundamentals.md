@@ -99,7 +99,7 @@ But once you've actually built something this way, you'll quickly notice some re
 
 * **Responsive design**. You can't use media queries in view modifiers, but you can use Tailwind SwiftUI's **responsive utilities** to build fully responsive interface easily.
 
-* **Hover, focus, and other states**. View modifiers can't target states like hover or focus, but Tailwind SwiftUI's state variants make it easy to style these states with utility view modifiers. 
+* **Hover, focus, and other states**. View modifiers can't target states like hover or focus, but Tailwind SwiftUI's **state variants** make it easy to style these states with utility view modifiers. 
 
 This component is fully responsive and includes a button with hover styles, and is built entirely with utility views and view modifiers:
 
