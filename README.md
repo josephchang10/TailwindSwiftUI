@@ -7,7 +7,8 @@ A utility-first Swift package packed with view modifiers that can be composed to
 **Core Concepts**
    - [Utility-First Fundamentals](Documentation/Core%20Concepts/Utility-First%20Fundamentals.md)
    - [Handling Hover, Focus, and Other States](Documentation/Core%20Concepts/Handling%20Hover,%20Focus,%20and%20Other%20States.md)
-   
+
+**Core Concepts**
 ## Utility-First Fundamentals
 
 Building complex components from a constrained set of primitive utilities.
@@ -174,7 +175,7 @@ Flex(.small, horizontalSpacing: .s4, verticalSpacing: .s2) {
 
 When you realize how productive you can be working exclusively in SwiftUI with predefined view modifiers, working any other way will feel like torture.
 
-   
+**Core Concepts**
 ##  Handling Hover, Focus, and Other States
 
 Using utilities to style elements on hover, focus, and more.
