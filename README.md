@@ -6,7 +6,7 @@ A utility-first Swift package packed with view modifiers that can be composed to
 
 **Core Concepts**
    - [Utility-First Fundamentals](#utility-first-fundamentals)
-   - [Handling Hover, Focus, and Other States](Documentation/Core%20Concepts/Handling%20Hover,%20Focus,%20and%20Other%20States.md)
+   - [Handling Hover, Focus, and Other States](#handling-hover-focus-and-other-states)
 
 ---
 
@@ -225,7 +225,7 @@ In Tailwind SwiftUI, rather than adding the styles for a hover state to an exsit
 
 ```swift
 .hover(.background(.sky700), default: .background(.sky500))
-```swift
+```
 
 Notice how `.hover(.background(.sky700), default: .background(.sky500))` defines styles for the hover state and the default state? The background is `.sky500` by default, but as soon as you hover an element with that view modifier, the background will change to `.sky700`.
 
