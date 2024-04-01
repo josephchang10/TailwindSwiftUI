@@ -103,9 +103,9 @@ But once you've actually built something this way, you'll quickly notice some re
 
 This component is fully responsive and includes a button with hover styles, and is built entirely with utility views and view modifiers:
 
-<img width="412" alt="Screenshot 2024-04-01 at 2 01 58 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/bd51b8e7-fabb-4c14-8138-f396606fbcb2">
+![](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/0bb22392-f2ab-4eef-922e-c9962d7b7cfb)
 
-<img width="760" alt="Screenshot 2024-04-01 at 2 02 09 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/2794489d-6c6f-487d-8192-d19e323ed822">
+![](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/733626bc-d279-4119-a2e8-19b78863e938)
 
 ```swift
 Flex(.small, horizontalSpacing: .s4, verticalSpacing: .s2) {
