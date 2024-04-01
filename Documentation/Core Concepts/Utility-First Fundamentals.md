@@ -93,6 +93,12 @@ This approach allows us to implement a completely custom component design withou
 
 Now I know what you're thinking, *"this is an atrocity, what a horrible mess!"* and you're right, it's kind of ugly. In fact it's just about impossible to think this is a good idea the first time you see it -- **you have to actually try it**.
 
-But once you've actually built something this way, you'll quickly notice some really important benefits.
+But once you've actually built something this way, you'll quickly notice some really important benefits:
+
+* **Designing with constraints**. Using view modifiers, every value is a magic number. With utilities, you're choosing styles from a predefined **design system**, which makes it much easier to build visually consistent UIs.
+
+* **Responsive design**. You can't use media queries in view modifiers, but you can use Tailwind SwiftUI's **responsive utilities** to build fully responsive interface easily.
+
+* **Hover, focus, and other states**. View modifiers can't target states like hover or focus, but Tailwind SwiftUI's state variants make it easy to style these states with utility view modifiers. 
 
 When you realize how productive you can be working exclusively in SwiftUI with predefined view modifiers, working any other way will feel like torture.

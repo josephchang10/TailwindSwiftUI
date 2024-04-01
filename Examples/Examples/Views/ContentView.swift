@@ -52,6 +52,7 @@ struct ContentView: View {
         .dark(.background(.slate800))
         .rounded(.extraLarge)
         .padding()
+        .main()
     }
 }
 

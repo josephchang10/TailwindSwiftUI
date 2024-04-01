@@ -101,6 +101,19 @@ public extension Color {
         case violet900
         case violet950
         
+        // Purple
+        case purple50
+        case purple100
+        case purple200
+        case purple300
+        case purple400
+        case purple500
+        case purple600
+        case purple700
+        case purple800
+        case purple900
+        case purple950
+        
         // Fuchsia
         case fuchsia50
         case fuchsia100
@@ -310,6 +323,30 @@ public extension Color {
     static let violet950 = Palette.violet950.color
     static let universalViolet950 = Palette.violet950.universalColor
     
+    // Purple
+    static let purple50 = Palette.purple50.color
+    static let universalPurple50 = Palette.purple50.universalColor
+    static let purple100 = Palette.purple100.color
+    static let universalPurple100 = Palette.purple100.universalColor
+    static let purple200 = Palette.purple200.color
+    static let universalPurple200 = Palette.purple200.universalColor
+    static let purple300 = Palette.purple300.color
+    static let universalPurple300 = Palette.purple300.universalColor
+    static let purple400 = Palette.purple400.color
+    static let universalPurple400 = Palette.purple400.universalColor
+    static let purple500 = Palette.purple500.color
+    static let universalPurple500 = Palette.purple500.universalColor
+    static let purple600 = Palette.purple600.color
+    static let universalPurple600 = Palette.purple600.universalColor
+    static let purple700 = Palette.purple700.color
+    static let universalPurple700 = Palette.purple700.universalColor
+    static let purple800 = Palette.purple800.color
+    static let universalPurple800 = Palette.purple800.universalColor
+    static let purple900 = Palette.purple900.color
+    static let universalPurple900 = Palette.purple900.universalColor
+    static let purple950 = Palette.purple950.color
+    static let universalPurple950 = Palette.purple950.universalColor
+    
     // Pink
     static let pink50 = Palette.pink50.color
     static let universalPink50 = Palette.pink50.universalColor
@@ -514,6 +551,30 @@ public extension ShapeStyle where Self == Color {
     static var universalViolet900: Color { .universalViolet900 }
     static var violet950: Color { .violet950 }
     static var universalViolet950: Color { .universalViolet950 }
+    
+    // Purple
+    static var purple50: Color { .purple50 }
+    static var universalPurple50: Color { .universalPurple50 }
+    static var purple100: Color { .purple100 }
+    static var universalPurple100: Color { .universalPurple100 }
+    static var purple200: Color { .purple200 }
+    static var universalPurple200: Color { .universalPurple200 }
+    static var purple300: Color { .purple300 }
+    static var universalPurple300: Color { .universalPurple300 }
+    static var purple400: Color { .purple400 }
+    static var universalPurple400: Color { .universalPurple400 }
+    static var purple500: Color { .purple500 }
+    static var universalPurple500: Color { .universalPurple500 }
+    static var purple600: Color { .purple600 }
+    static var universalPurple600: Color { .universalPurple600 }
+    static var purple700: Color { .purple700 }
+    static var universalPurple700: Color { .universalPurple700 }
+    static var purple800: Color { .purple800 }
+    static var universalPurple800: Color { .universalPurple800 }
+    static var purple900: Color { .purple900 }
+    static var universalPurple900: Color { .universalPurple900 }
+    static var purple950: Color { .purple950 }
+    static var universalPurple950: Color { .universalPurple950 }
     
     // Pink
     static var pink50: Color { .pink50 }

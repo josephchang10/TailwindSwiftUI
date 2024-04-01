@@ -67,9 +67,12 @@ public struct Main<Content: View>: View {
 }
 
 struct ResponsiveDesign: ViewModifier {
+    let alignment: Alignment
+    
     func body(content: Content) -> some View {
         GeometryReader { geometry in
             content
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
                 .environment(\.breakpoint, .init(width: geometry.size.width))
         }
     }
@@ -179,8 +182,8 @@ public struct Large: View {
 
 public extension View {
     // # Responsive Design
-    func main() -> some View {
-        modifier(ResponsiveDesign())
+    func main(alignment: Alignment = .center) -> some View {
+        modifier(ResponsiveDesign(alignment: alignment))
     }
     // Using responsive utility variants to build adaptive user interfaces.
     //
@@ -303,21 +306,25 @@ public struct Flex<Content: View>: View {
     @Environment(\.breakpoint) var breakpoint
     let thresholdBreakpoint: Breakpoint?
     let content: () -> Content
+    let horizontalSpacing: Scale?
+    let verticalSpacing: Scale?
     
     public var body: some View {
         if let thresholdBreakpoint, breakpoint >= thresholdBreakpoint {
-            HStack {
+            HStack(spacing: horizontalSpacing == nil ? nil : .scale(horizontalSpacing!)) {
                 content()
             }
         } else {
-            VStack {
+            VStack(spacing: verticalSpacing == nil ? nil : .scale(verticalSpacing!)) {
                 content()
             }
         }
     }
     
-    public init(_ thresholdBreakpoint: Breakpoint? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(_ thresholdBreakpoint: Breakpoint? = nil, horizontalSpacing: Scale? = nil, verticalSpacing: Scale? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.content = content
         self.thresholdBreakpoint = thresholdBreakpoint
+        self.horizontalSpacing = horizontalSpacing
+        self.verticalSpacing = verticalSpacing
     }
 }

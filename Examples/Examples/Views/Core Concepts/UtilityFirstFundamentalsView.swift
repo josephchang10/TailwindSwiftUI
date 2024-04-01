@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TailwindSwiftUI
 
 struct TraditionalView: View {
     var body: some View {
@@ -80,4 +81,67 @@ struct UtilitiesView: View {
 
 #Preview {
     UtilitiesView()
+}
+
+struct ResponsiveView: View {
+    var body: some View {
+        Flex(.small, horizontalSpacing: .s4, verticalSpacing: .s2) {
+            AsyncImage(url: .init(string: "https://tailwindcss.com/img/erin-lindford.jpg")) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .height(.s24)
+                    .rounded(.full)
+            } placeholder: {
+                ProgressView()
+            }
+            .accessibilityLabel("Woman's Face")
+            VStack(alignment: .leading, spacing: .s3_5) {
+                VStack(alignment: .leading, spacing: .s1_5) {
+                    Text("Erin Lindford")
+                        .text(.large)
+                        .foregroundStyle(.black)
+                        .fontWeight(.semibold)
+                        .small(otherwise: .width(.full, alignment: .center))
+                    Text("Product Engineer")
+                        .foregroundStyle(.slate500)
+                        .fontWeight(.medium)
+                        .small(otherwise: .width(.full, alignment: .center))
+                }
+                Button {} label: {
+                    Text("Message")
+                        .padding(.horizontal, .s4)
+                        .padding(.vertical, .s1)
+                        .text(.small)
+                        .hover { content in
+                            content
+                                .foregroundStyle(.white)
+                                .background(.purple600)
+                                .ring(.purple600, thickness: .t2, offset: .init(width: .s2))
+                                .rounded(.full)
+                        } otherwise: { content in
+                            content
+                                .foregroundStyle(.purple600)
+                                .border(.purple200, rounded: .full)
+                        }
+                        .fontWeight(.semibold)
+                        .cursorPointer()
+                }
+                .small(otherwise: .width(.full, alignment: .center))
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.s8)
+        .max(width: .small)
+        .background(.white)
+        .rounded(.extraLarge)
+        .shadow(.large)
+        .padding(.horizontal, .s20)
+        .main()
+        .background(.universalSlate100)
+    }
+}
+
+#Preview {
+    ResponsiveView()
 }
