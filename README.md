@@ -5,8 +5,10 @@ A utility-first Swift package packed with view modifiers that can be composed to
 **[Get started](Documentation/Getting%20started/Installation.md)**
 
 **Core Concepts**
-   - [Utility-First Fundamentals](Documentation/Core%20Concepts/Utility-First%20Fundamentals.md)
+   - [Utility-First Fundamentals](#utility-first-fundamentals)
    - [Handling Hover, Focus, and Other States](Documentation/Core%20Concepts/Handling%20Hover,%20Focus,%20and%20Other%20States.md)
+
+---
 
 **Core Concepts**
 ## Utility-First Fundamentals
