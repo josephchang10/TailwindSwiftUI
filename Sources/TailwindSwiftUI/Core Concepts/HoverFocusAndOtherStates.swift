@@ -104,3 +104,9 @@ public extension View {
         modifier(HoverTransform(transform: hoverTransform, otherTransform: otherTransform))
     }
 }
+
+public extension ViewModifier where Self == AnyViewModifier {
+    static func hover(_ modifier: AnyViewModifier) -> AnyViewModifier {
+        AnyViewModifier(Hover(modifier: modifier, otherModifier: AnyViewModifier(EmptyModifier())))
+    }
+}

@@ -42,7 +42,7 @@ struct BreakpointKey: EnvironmentKey {
     static let defaultValue: Breakpoint = .unknown
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     var breakpoint: Breakpoint {
         get { self[BreakpointKey.self] }
         set {
@@ -236,16 +236,6 @@ public extension ViewModifier where Self == LargeViewModifier<Width, Width> {
     }
 }
 
-public extension ViewModifier where Self == MediumViewModifier<Height, Height> {
-    static func medium(_ height: Height) -> Self {
-        .init(modifier: height, otherwise: nil)
-    }
-    
-    static func medium(_ height: Height, otherwise otherHeight: Height) -> Self {
-        .init(modifier: height, otherwise: otherHeight)
-    }
-}
-
 public extension ViewModifier where Self == LargeViewModifier<Height, Height> {
     static func large(_ height: Height) -> Self {
         .init(modifier: height, otherwise: nil)
@@ -266,13 +256,13 @@ public extension ViewModifier where Self == SmallViewModifier<Padding, Padding> 
     }
 }
 
-public extension ViewModifier where Self == MediumViewModifier<Padding, Padding> {
-    static func medium(_ padding: Padding) -> Self {
-        .init(modifier: padding, otherwise: nil)
+public extension ViewModifier where Self == MediumViewModifier<AnyViewModifier, AnyViewModifier> {
+    static func medium(_ modifier: AnyViewModifier) -> Self {
+        .init(modifier: modifier, otherwise: nil)
     }
     
-    static func medium(_ padding: Padding, otherwise otherPadding: Padding) -> Self {
-        .init(modifier: padding, otherwise: otherPadding)
+    static func medium(_ modifier: AnyViewModifier, otherwise otherModifier: AnyViewModifier) -> Self {
+        .init(modifier: modifier, otherwise: otherModifier)
     }
 }
 

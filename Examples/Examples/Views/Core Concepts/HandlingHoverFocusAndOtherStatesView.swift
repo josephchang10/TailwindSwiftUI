@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TailwindSwiftUI
 
 struct HoverView: View {
     var body: some View {
@@ -47,4 +48,17 @@ struct TraditionalHoverView: View {
 
 #Preview {
     TraditionalHoverView()
+}
+
+struct ModifiersView: View {
+    var body: some View {
+        Button {} label: {
+            Text("Save changes")
+        }
+        .dark(.medium(.hover(.background(.fuchsia600))))
+    }
+}
+
+#Preview {
+    ModifiersView()
 }

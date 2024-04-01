@@ -347,6 +347,30 @@ public extension Color {
     static let purple950 = Palette.purple950.color
     static let universalPurple950 = Palette.purple950.universalColor
     
+    // Fuchsia
+    static let fuchsia50 = Palette.fuchsia50.color
+    static let universalFuchsia50 = Palette.fuchsia50.universalColor
+    static let fuchsia100 = Palette.fuchsia100.color
+    static let universalFuchsia100 = Palette.fuchsia100.universalColor
+    static let fuchsia200 = Palette.fuchsia200.color
+    static let universalFuchsia200 = Palette.fuchsia200.universalColor
+    static let fuchsia300 = Palette.fuchsia300.color
+    static let universalFuchsia300 = Palette.fuchsia300.universalColor
+    static let fuchsia400 = Palette.fuchsia400.color
+    static let universalFuchsia400 = Palette.fuchsia400.universalColor
+    static let fuchsia500 = Palette.fuchsia500.color
+    static let universalFuchsia500 = Palette.fuchsia500.universalColor
+    static let fuchsia600 = Palette.fuchsia600.color
+    static let universalFuchsia600 = Palette.fuchsia600.universalColor
+    static let fuchsia700 = Palette.fuchsia700.color
+    static let universalFuchsia700 = Palette.fuchsia700.universalColor
+    static let fuchsia800 = Palette.fuchsia800.color
+    static let universalFuchsia800 = Palette.fuchsia800.universalColor
+    static let fuchsia900 = Palette.fuchsia900.color
+    static let universalFuchsia900 = Palette.fuchsia900.universalColor
+    static let fuchsia950 = Palette.fuchsia950.color
+    static let universalFuchsia950 = Palette.fuchsia950.universalColor
+    
     // Pink
     static let pink50 = Palette.pink50.color
     static let universalPink50 = Palette.pink50.universalColor
@@ -380,6 +404,10 @@ public extension Color {
         #else
         .init(uiColor: UIColor(named: name, in: .module, compatibleWith: nil)!)
         #endif
+    }
+    
+    static func / (left: Color, right: Int) -> Color {
+        left.opacity(Double(right) / 100)
     }
 }
 
@@ -575,6 +603,30 @@ public extension ShapeStyle where Self == Color {
     static var universalPurple900: Color { .universalPurple900 }
     static var purple950: Color { .purple950 }
     static var universalPurple950: Color { .universalPurple950 }
+    
+    // Fuchsia
+    static var fuchsia50: Color { .fuchsia50 }
+    static var universalFuchsia50: Color { .universalFuchsia50 }
+    static var fuchsia100: Color { .fuchsia100 }
+    static var universalFuchsia100: Color { .universalFuchsia100 }
+    static var fuchsia200: Color { .fuchsia200 }
+    static var universalFuchsia200: Color { .universalFuchsia200 }
+    static var fuchsia300: Color { .fuchsia300 }
+    static var universalFuchsia300: Color { .universalFuchsia300 }
+    static var fuchsia400: Color { .fuchsia400 }
+    static var universalFuchsia400: Color { .universalFuchsia400 }
+    static var fuchsia500: Color { .fuchsia500 }
+    static var universalFuchsia500: Color { .universalFuchsia500 }
+    static var fuchsia600: Color { .fuchsia600 }
+    static var universalFuchsia600: Color { .universalFuchsia600 }
+    static var fuchsia700: Color { .fuchsia700 }
+    static var universalFuchsia700: Color { .universalFuchsia700 }
+    static var fuchsia800: Color { .fuchsia800 }
+    static var universalFuchsia800: Color { .universalFuchsia800 }
+    static var fuchsia900: Color { .fuchsia900 }
+    static var universalFuchsia900: Color { .universalFuchsia900 }
+    static var fuchsia950: Color { .fuchsia950 }
+    static var universalFuchsia950: Color { .universalFuchsia950 }
     
     // Pink
     static var pink50: Color { .pink50 }

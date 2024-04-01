@@ -52,3 +52,19 @@ Button {} label: {
     
     This is what we mean when we say a utility view modifier can be applied *conditionally* — by using modifiers you can control exactly how your design behaves in different states, without ever tracking states yourself.
 </details>
+
+Tailwind SwiftUI includes modifiers for just about everything you'll ever need, including:
+
+* **View modifiers**, like `.hover(_)` and `.focus(_)`.
+* **Transforms**, like `.hover(_ hoverTransform:)`.
+* **Media and feature queries**, like responsive breakpoints and dark mode.
+
+These modifiers can even be **stacked** to target more specific situations, for example changing the background color in dark mode, at the medium breakpoint, on hover:
+
+```swift
+Button {} label: {
+    Text("Save changes")
+}
+.dark(.medium(.hover(.background(.fuchsia600))))
+...
+```
