@@ -101,4 +101,65 @@ But once you've actually built something this way, you'll quickly notice some re
 
 * **Hover, focus, and other states**. View modifiers can't target states like hover or focus, but Tailwind SwiftUI's state variants make it easy to style these states with utility view modifiers. 
 
+This component is fully responsive and includes a button with hover styles, and is built entirely with utility views and view modifiers:
+
+<img width="412" alt="Screenshot 2024-04-01 at 2 01 58 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/bd51b8e7-fabb-4c14-8138-f396606fbcb2">
+
+<img width="760" alt="Screenshot 2024-04-01 at 2 02 09 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/2794489d-6c6f-487d-8192-d19e323ed822">
+
+```swift
+Flex(.small, horizontalSpacing: .s4, verticalSpacing: .s2) {
+    AsyncImage(url: .init(string: "https://tailwindcss.com/img/erin-lindford.jpg")) { image in
+        image
+            .resizable()
+            .scaledToFit()
+            .height(.s24)
+            .rounded(.full)
+    } placeholder: {
+        ProgressView()
+    }
+    .accessibilityLabel("Woman's Face")
+    VStack(alignment: .leading, spacing: .s3_5) {
+        VStack(alignment: .leading, spacing: .s1_5) {
+            Text("Erin Lindford")
+                .text(.large)
+                .foregroundStyle(.black)
+                .fontWeight(.semibold)
+                .small(otherwise: .width(.full, alignment: .center))
+            Text("Product Engineer")
+                .foregroundStyle(.slate500)
+                .fontWeight(.medium)
+                .small(otherwise: .width(.full, alignment: .center))
+        }
+        Button {} label: {
+            Text("Message")
+                .padding(.horizontal, .s4)
+                .padding(.vertical, .s1)
+                .text(.small)
+                .hover { content in
+                    content
+                        .foregroundStyle(.white)
+                        .background(.purple600)
+                        .ring(.purple600, thickness: .t2, offset: .init(width: .s2))
+                        .rounded(.full)
+                } otherwise: { content in
+                    content
+                        .foregroundStyle(.purple600)
+                        .border(.purple200, rounded: .full)
+                }
+                .fontWeight(.semibold)
+                .cursorPointer()
+        }
+        .small(otherwise: .width(.full, alignment: .center))
+        .buttonStyle(.plain)
+    }
+}
+.padding(.s8)
+.max(width: .small)
+.background(.white)
+.rounded(.extraLarge)
+.shadow(.large)
+.main()
+```
+
 When you realize how productive you can be working exclusively in SwiftUI with predefined view modifiers, working any other way will feel like torture.
