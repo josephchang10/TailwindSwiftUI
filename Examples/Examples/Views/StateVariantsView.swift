@@ -87,7 +87,7 @@ struct StateVariantsView: View {
                         }
                         .padding(.s3)
                         .cursorPointer()
-                        .hover(.background(.blue500), otherwise: .background(.white))
+                        .hover(.background(.blue500), default: .background(.white))
                         .rounded(.medium)
                         .ring(.slate200, thickness: .t1, rounded: .medium)
                         .shadow(.small)
@@ -135,7 +135,7 @@ struct StateVariantsView: View {
                         .padding(.leading, .s2)
                         .padding(.trailing, .s3)
                         .padding(.vertical, .s2)
-                        .hover(.background(.blue400), otherwise: .background(.blue500))
+                        .hover(.background(.blue400), default: .background(.blue500))
                         .rounded(.medium)
                         .foregroundStyle(.white)
                         .text(.small)

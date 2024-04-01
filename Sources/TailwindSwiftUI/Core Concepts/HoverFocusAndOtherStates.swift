@@ -96,8 +96,8 @@ public extension View {
         self.modifier(Hover(modifier: AnyViewModifier(modifier), otherModifier: AnyViewModifier(EmptyModifier())))
     }
     
-    func hover(_ modifier: some ViewModifier, otherwise otherModofier: some ViewModifier) -> some View {
-        self.modifier(Hover(modifier: AnyViewModifier(modifier), otherModifier: AnyViewModifier(otherModofier)))
+    func hover(_ modifier: some ViewModifier, default defaultModofier: some ViewModifier) -> some View {
+        self.modifier(Hover(modifier: AnyViewModifier(modifier), otherModifier: AnyViewModifier(defaultModofier)))
     }
     
     @ViewBuilder func hover<Content: View, OtherContent: View>(_ hoverTransform: @escaping (AnyView) -> Content, otherwise otherTransform: @escaping (AnyView) -> OtherContent) -> some View {

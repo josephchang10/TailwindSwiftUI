@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct HandlingHoverFocusAndOtherStatesView: View {
+struct HoverView: View {
     var body: some View {
         Button {} label: {
             Text("Save changes")
                 .padding(.horizontal, .s5)
                 .padding(.vertical, .s2)
-                .hover(.background(.sky700), otherwise: .background(.sky500))
+                .hover(.background(.sky700), default: .background(.sky500))
                 .text(.small, leading: 5)
                 .rounded(.full)
                 .fontWeight(.semibold)
@@ -28,5 +28,23 @@ struct HandlingHoverFocusAndOtherStatesView: View {
 }
 
 #Preview {
-    HandlingHoverFocusAndOtherStatesView()
+    HoverView()
+}
+
+struct TraditionalHoverView: View {
+    @State private var isHovering = false
+    
+    var body: some View {
+        Button {} label: {
+            Text("Save changes")
+                .background(isHovering ? Color(red: 3 / 255, green: 105 / 255, blue: 161 / 255) : Color(red: 14 / 255, green: 165 / 255, blue: 233 / 255))
+        }
+        .onHover { hovering in
+            isHovering = hovering
+        }
+    }
+}
+
+#Preview {
+    TraditionalHoverView()
 }
