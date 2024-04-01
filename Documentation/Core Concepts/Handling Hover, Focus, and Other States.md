@@ -68,3 +68,20 @@ Button {} label: {
 .dark(.medium(.hover(.background(.fuchsia600))))
 ...
 ```
+
+In this guide you'll learn about every modifier available in the package, how to use them with your own custom views.
+
+---
+
+**View moodifiers**
+## Hover, focus, and active
+
+Style elements on hover and focus using the `.hover(_)`, `.focus(_)`, and `.buttonStyle(.active(_))` modifiers:
+
+```swift
+Button {} label: {
+    Text("Save changes")
+}
+.hover(.background(.violet600), default: .background(.violet500))
+.buttonStyle(.active(.background(.violet700)))
+```

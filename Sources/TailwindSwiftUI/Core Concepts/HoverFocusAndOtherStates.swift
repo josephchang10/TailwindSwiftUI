@@ -110,3 +110,18 @@ public extension ViewModifier where Self == AnyViewModifier {
         AnyViewModifier(Hover(modifier: modifier, otherModifier: AnyViewModifier(EmptyModifier())))
     }
 }
+
+public struct ActiveStateButtonStyle: ButtonStyle {
+    let modifier: AnyViewModifier
+    
+    public func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .modifier(configuration.isPressed ? modifier : AnyViewModifier(EmptyModifier()))
+    }
+}
+
+public extension ButtonStyle where Self == ActiveStateButtonStyle {
+    static func active(_ modifier: AnyViewModifier) -> ActiveStateButtonStyle {
+        ActiveStateButtonStyle(modifier: modifier)
+    }
+}
