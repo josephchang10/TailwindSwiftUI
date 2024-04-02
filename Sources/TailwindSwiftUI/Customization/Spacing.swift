@@ -247,12 +247,12 @@ public struct Padding: ViewModifier {
     }
 }
 
-public extension ViewModifier where Self == Padding {
+public extension ViewModifier where Self == AnyViewModifier {
     static func padding(_ scale: Scale) -> Self {
-        Padding(.all, scale)
+        AnyViewModifier(Padding(.all, scale))
     }
     
     static func padding(_ edges: Edge.Set = .all, _ scale: Scale) -> Self {
-        Padding(edges, scale)
+        AnyViewModifier(Padding(edges, scale))
     }
 }

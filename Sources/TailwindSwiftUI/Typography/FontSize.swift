@@ -86,6 +86,7 @@ public struct Typography: ViewModifier {
             .font(.system(size: fontSize.fontSize))
             .if(lineHeight != nil, transform: { view in
                 view
+                    .padding(.vertical, (lineHeight! - fontSize.fontSize) / 2)
                     .lineHeight(lineHeight!, fontSize: fontSize.fontSize)
             })
     }
@@ -120,11 +121,5 @@ public extension View {
     
     func lineHeight(_ lineHeight: CGFloat, fontSize: CGFloat) -> some View {
         modifier(.lineHeight(lineHeight, fontSize: fontSize))
-    }
-}
-
-public extension Text {
-    func text(_ fontSize: Typography.FontSize) -> Text {
-        font(.system(size: fontSize.fontSize))
     }
 }

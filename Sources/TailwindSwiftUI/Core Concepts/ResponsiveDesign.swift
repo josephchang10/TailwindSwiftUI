@@ -141,18 +141,18 @@ public struct MediumViewModifier<T: ViewModifier, U: ViewModifier>: ViewModifier
 public struct LargeViewModifier<T: ViewModifier, U: ViewModifier>: ViewModifier {
     @Environment(\.breakpoint) var breakpoint
     let modifier: T
-    let otherModifier: U?
+    let defaultModifier: U?
     
     public func body(content: Content) -> some View {
         guard breakpoint >= .large else {
-            return otherModifier == nil ? AnyView(content) : AnyView(content.modifier(otherModifier!))
+            return defaultModifier == nil ? AnyView(content) : AnyView(content.modifier(defaultModifier!))
         }
         return AnyView(content.modifier(modifier))
     }
     
-    init(modifier: T, otherwise otherModifier: U?) {
+    init(modifier: T, default defaultModifier: U?) {
         self.modifier = modifier
-        self.otherModifier = otherModifier
+        self.defaultModifier = defaultModifier
     }
 }
 
@@ -218,41 +218,41 @@ public extension View {
     }
     
     func large(_ modifier: some ViewModifier) -> some View {
-        self.modifier(LargeViewModifier(modifier: modifier, otherwise: EmptyModifier()))
+        self.modifier(LargeViewModifier(modifier: modifier, default: EmptyModifier()))
     }
     
-    func large(_ modifier: some ViewModifier, otherwise otherModifier: some ViewModifier) -> some View {
-        self.modifier(LargeViewModifier(modifier: modifier, otherwise: otherModifier))
+    func large(_ modifier: some ViewModifier, default defaultModifier: some ViewModifier) -> some View {
+        self.modifier(LargeViewModifier(modifier: modifier, default: defaultModifier))
     }
 }
 
 public extension ViewModifier where Self == LargeViewModifier<Width, Width> {
     static func large(_ width: Width) -> Self {
-        .init(modifier: width, otherwise: nil)
+        .init(modifier: width, default: nil)
     }
     
     static func large(_ width: Width, otherwise otherWidth: Width) -> Self {
-        .init(modifier: width, otherwise: otherWidth)
+        .init(modifier: width, default: otherWidth)
     }
 }
 
-public extension ViewModifier where Self == LargeViewModifier<Height, Height> {
-    static func large(_ height: Height) -> Self {
-        .init(modifier: height, otherwise: nil)
+public extension ViewModifier where Self == LargeViewModifier<AnyViewModifier, AnyViewModifier> {
+    static func large(_ modifier: AnyViewModifier) -> Self {
+        .init(modifier: modifier, default: nil)
     }
     
-    static func large(_ height: Height, otherwise otherHeight: Height) -> Self {
-        .init(modifier: height, otherwise: otherHeight)
+    static func large(_ modifier: AnyViewModifier, otherwise otherModifier: AnyViewModifier) -> Self {
+        .init(modifier: modifier, default: otherModifier)
     }
 }
 
-public extension ViewModifier where Self == SmallViewModifier<Padding, Padding> {
-    static func small(_ padding: Padding) -> Self {
-        .init(modifier: padding, otherwise: nil)
+public extension ViewModifier where Self == SmallViewModifier<AnyViewModifier, AnyViewModifier> {
+    static func small(_ modifier: AnyViewModifier) -> Self {
+        .init(modifier: modifier, otherwise: nil)
     }
     
-    static func small(_ padding: Padding, otherwise otherPadding: Padding) -> Self {
-        .init(modifier: padding, otherwise: otherPadding)
+    static func small(_ modifier: AnyViewModifier, otherwise otherModifier: AnyViewModifier) -> Self {
+        .init(modifier: modifier, otherwise: otherModifier)
     }
 }
 
@@ -274,11 +274,11 @@ public extension ViewModifier where Self == MediumViewModifier<Padding, SmallVie
 
 public extension ViewModifier where Self == LargeViewModifier<Padding, Padding> {
     static func large(_ padding: Padding) -> Self {
-        .init(modifier: padding, otherwise: nil)
+        .init(modifier: padding, default: nil)
     }
     
     static func large(_ padding: Padding, otherwise otherPadding: Padding) -> Self {
-        .init(modifier: padding, otherwise: otherPadding)
+        .init(modifier: padding, default: otherPadding)
     }
 }
 

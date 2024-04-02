@@ -130,3 +130,9 @@ public extension View {
             ))
         }
 }
+
+public extension ViewModifier where Self == AnyViewModifier {
+    static func shadow(_ size: Shadow.Size = .base) -> AnyViewModifier {
+        AnyViewModifier(Shadow(size: size))
+    }
+}

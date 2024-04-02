@@ -91,3 +91,40 @@ Button {} label: {
 .hover(.background(.violet600), default: .background(.violet500))
 .buttonStyle(.active(.background(.violet700)))
 ```
+
+
+**Form states**
+
+Style form elements in different states using modifiers like `.textFieldStyle(.input(disabled:))`:
+
+```swift
+Form {
+    VStack(alignment: .leading, spacing: 0) {
+        Text("Username")
+            .text(.small)
+            .fontWeight(.medium)
+            .foregroundStyle(.slate700)
+        TextField("", text: .constant("tbone"))
+            .textFieldStyle(.input([.padding(.horizontal, .s1), .padding(.vertical, .s2)], default: [.border(.slate300, rounded: .medium), .shadow(.small)], disabled: [.background(.slate50), .foregroundStyle(.slate500), .border(.slate200, rounded: .medium)]))
+            .background(.white)
+            .padding(.top, .s1)
+            .width(.full)
+            .small(.text(.small))
+            .disabled(true)
+    }
+    VStack(alignment: .leading, spacing: 0) {
+        Text("Password")
+            .text(.small)
+            .fontWeight(.medium)
+            .foregroundStyle(.slate700)
+        SecureField("", text: $password)
+            .textFieldStyle(.input([.padding(.horizontal, .s1), .padding(.vertical, .s2), .shadow(.small)], default: [.border(.slate300, rounded: .medium), .ring(thickness: .t0)], focused: [.border(.sky500, rounded: .medium), .ring(.sky500, thickness: .t1, rounded: .medium)]))
+            .background(.white)
+            .padding(.top, .s1)
+            .width(.full)
+            .small(.text(.small))
+    }
+    .padding(.top, .s6)
+    // ...
+}
+```

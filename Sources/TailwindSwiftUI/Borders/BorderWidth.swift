@@ -32,8 +32,8 @@ public struct EdgeBorder: Shape {
     }
 }
 
-public struct Border<S: ShapeStyle>: ViewModifier {
-    let content: S
+public struct Border: ViewModifier {
+    let content: AnyShapeStyle
     let width: CGFloat
     let edges: Edge.Set
     var style = EdgeBorder.Style.solid
@@ -52,13 +52,17 @@ public struct Border<S: ShapeStyle>: ViewModifier {
 
 public extension ViewModifier where Self == AnyViewModifier {
     static func border(_ content: some ShapeStyle, _ edges: Edge.Set = .all) -> Self {
-        AnyViewModifier(Border(content: content, width: 1, edges: edges))
+        AnyViewModifier(Border(content: AnyShapeStyle(content), width: 1, edges: edges))
     }
 }
 
-public extension ViewModifier where Self == Border<Color> {
-    static func border(_ style: EdgeBorder.Style, _ content: Color, _ edges: Edge.Set = .all, width: CGFloat = 1, rounded: BorderRadius.Size) -> Self {
-        Self(content: content, width: width, edges: edges, style: style, rounded: rounded)
+public extension ViewModifier where Self == AnyViewModifier {
+    static func border(_ style: EdgeBorder.Style, _ content: some ShapeStyle, _ edges: Edge.Set = .all, width: CGFloat = 1, rounded: BorderRadius.Size) -> Self {
+        Self(Border(content: AnyShapeStyle(content), width: width, edges: edges, style: style, rounded: rounded))
+    }
+    
+    static func border(_ content: some ShapeStyle, _ edges: Edge.Set = .all, width: CGFloat = 1, rounded: BorderRadius.Size = .none) -> Self {
+        Self(Border(content: AnyShapeStyle(content), width: width, edges: edges, rounded: rounded))
     }
 }
 

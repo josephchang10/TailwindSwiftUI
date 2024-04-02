@@ -70,7 +70,7 @@ struct MobileFirstView: View {
                             checkAvailability
                         }
                         Text("Discover tranquility in our Cozy Cabin Retreat, nestled in the heart of Santa Teresa, ES, Brazil. This A-frame sanctuary offers stunning mountain views and a unique blend of rustic charm and modern comfort. Perfect for relaxation seekers, our cabin is surrounded by nature yet close to local cafes and cultural spots. Ideal for a serene getaway or a nature-filled adventure.")
-                            .large(.padding(.top, .s6), otherwise: .padding(.top, .s4))
+                            .large(.padding(.top, .s6), default: .padding(.top, .s4))
                             .text(.small, leading: 6)
                             .width(.full, alignment: .leading)
                             .dark(.foregroundStyle(.slate400))
@@ -80,7 +80,7 @@ struct MobileFirstView: View {
                         images
                     }
                 }
-                .large(.max(width: .extraLarge5), otherwise: .max(width: .extraLarge4))
+                .large(.max(width: .extraLarge5), default: .max(width: .extraLarge4))
             }
             .medium(.padding(.vertical, .s10), otherwise: .padding(.vertical, .s6))
             .medium(.padding(.horizontal, .s8), otherwise: .small(.padding(.horizontal, .s6), otherwise: .padding(.horizontal, .s4)))
@@ -137,7 +137,7 @@ struct MobileFirstView: View {
                     Image("CabinRetreatInterior")
                     .resizable()
                 }
-                .large(.col(span: 2), otherwise: .medium(.col(span: 1), otherwise: .col(span: 2)))
+                .large(.col(span: 2), default: .medium(.col(span: 1), otherwise: .col(span: 2)))
                 .small(.height(.s52), otherwise: .height(.s0))
                 .large(.height(.s32))
                 Object(.cover) {
@@ -150,7 +150,7 @@ struct MobileFirstView: View {
             }
             .rounded(.large)
         }
-        .large(.padding(.bottom, .s0), otherwise: .small(.padding(.bottom, .s6)))
+        .large(.padding(.bottom, .s0), default: .small(.padding(.bottom, .s6)))
     }
 }
 

@@ -74,9 +74,9 @@ public extension View {
     }
 }
 
-public extension ViewModifier where Self == Ring<Color, Color> {
+public extension ViewModifier where Self == AnyViewModifier {
     static func ring(_ content: Color = .ring, thickness: RingThickness = .t3, inset: Bool = false, offset: RingOffset<Color> = .init(), rounded size: BorderRadius.Size = .none) -> Self {
-        Self(content: content, thickness: thickness, offset: offset, roundedSize: size, isInset: inset)
+        Self(Ring(content: content, thickness: thickness, offset: offset, roundedSize: size, isInset: inset))
     }
 }
 
