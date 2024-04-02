@@ -97,6 +97,10 @@ Button {} label: {
 
 Style form elements in different states using modifiers like `.textFieldStyle(.input(disabled:))`:
 
+<img width="307" alt="Screenshot 2024-04-02 at 1 40 43 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/788af96a-448a-4eee-adf7-453d1827aa0d">
+
+<img width="305" alt="Screenshot 2024-04-02 at 1 40 57 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/4f850867-b05e-480a-9977-d225c7e6b004">
+
 ```swift
 Form {
     VStack(alignment: .leading, spacing: 0) {
