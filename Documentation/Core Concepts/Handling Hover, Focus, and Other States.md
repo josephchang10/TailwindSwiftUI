@@ -136,9 +136,13 @@ Form {
 Using modifiers for this sort of thing can reduce the amount of conditional logic in your templates, letting you use the same set of view modifiers regardless of what state an input is in.
 
 
-**Styling based on parent state (.group{Modifier})
+**Styling based on parent state (.group{Modifier})**
 
 When you need to style an element based on the state of some *parent* element, mark the parent with the `.group()` view modifier, and use `.group*(_:)` modifiers like `.groupHover(_:)` to style the target element:
+
+<img width="595" alt="Screenshot 2024-04-02 at 2 11 57 PM" src="https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/3467b98e-e4bd-4a47-869f-c600704acac0">
+
+![Styling based on parent state](https://github.com/josephchang10/TailwindSwiftUI/assets/5158525/a11f3262-afa2-4654-9860-165ff84a9a2a)
 
 ```swift
 Link(destination: .init(string: "#")!) {
