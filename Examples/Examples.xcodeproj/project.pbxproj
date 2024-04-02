@@ -37,7 +37,12 @@
 		7CB477D12BB8158A003EAE51 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477D02BB8158A003EAE51 /* FiltersView.swift */; };
 		7CB477D42BB938DF003EAE51 /* InstallationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477D32BB938DF003EAE51 /* InstallationView.swift */; };
 		7CB477DA2BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477D92BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift */; };
-		7CB477DC2BBA89FA003EAE51 /* HandlingHoverFocusAndOtherStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477DB2BBA89FA003EAE51 /* HandlingHoverFocusAndOtherStatesView.swift */; };
+		7CB477DC2BBA89FA003EAE51 /* FormStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477DB2BBA89FA003EAE51 /* FormStatesView.swift */; };
+		7CB477DF2BBBD48E003EAE51 /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477DE2BBBD48E003EAE51 /* HoverView.swift */; };
+		7CB477E12BBBD4C1003EAE51 /* ModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477E02BBBD4C1003EAE51 /* ModifiersView.swift */; };
+		7CB477E32BBBD4D2003EAE51 /* HoverViewModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477E22BBBD4D2003EAE51 /* HoverViewModifierView.swift */; };
+		7CB477E52BBBD4E6003EAE51 /* FirstLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477E42BBBD4E6003EAE51 /* FirstLastView.swift */; };
+		7CB477E72BBBD51D003EAE51 /* StylingBasedOnParentStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB477E62BBBD51D003EAE51 /* StylingBasedOnParentStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +96,12 @@
 		7CB477D02BB8158A003EAE51 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		7CB477D32BB938DF003EAE51 /* InstallationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallationView.swift; sourceTree = "<group>"; };
 		7CB477D92BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFirstFundamentalsView.swift; sourceTree = "<group>"; };
-		7CB477DB2BBA89FA003EAE51 /* HandlingHoverFocusAndOtherStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingHoverFocusAndOtherStatesView.swift; sourceTree = "<group>"; };
+		7CB477DB2BBA89FA003EAE51 /* FormStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatesView.swift; sourceTree = "<group>"; };
+		7CB477DE2BBBD48E003EAE51 /* HoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
+		7CB477E02BBBD4C1003EAE51 /* ModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiersView.swift; sourceTree = "<group>"; };
+		7CB477E22BBBD4D2003EAE51 /* HoverViewModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewModifierView.swift; sourceTree = "<group>"; };
+		7CB477E42BBBD4E6003EAE51 /* FirstLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLastView.swift; sourceTree = "<group>"; };
+		7CB477E62BBBD51D003EAE51 /* StylingBasedOnParentStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingBasedOnParentStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,10 +268,23 @@
 		7CB477D62BB93B84003EAE51 /* Core Concepts */ = {
 			isa = PBXGroup;
 			children = (
+				7CB477DD2BBBD47A003EAE51 /* Handling Hover, Focus, and Other States */,
 				7CB477D92BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift */,
-				7CB477DB2BBA89FA003EAE51 /* HandlingHoverFocusAndOtherStatesView.swift */,
 			);
 			path = "Core Concepts";
+			sourceTree = "<group>";
+		};
+		7CB477DD2BBBD47A003EAE51 /* Handling Hover, Focus, and Other States */ = {
+			isa = PBXGroup;
+			children = (
+				7CB477DE2BBBD48E003EAE51 /* HoverView.swift */,
+				7CB477E02BBBD4C1003EAE51 /* ModifiersView.swift */,
+				7CB477E22BBBD4D2003EAE51 /* HoverViewModifierView.swift */,
+				7CB477E42BBBD4E6003EAE51 /* FirstLastView.swift */,
+				7CB477DB2BBA89FA003EAE51 /* FormStatesView.swift */,
+				7CB477E62BBBD51D003EAE51 /* StylingBasedOnParentStateView.swift */,
+			);
+			path = "Handling Hover, Focus, and Other States";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,13 +423,16 @@
 				7CB477C02BB54C3A003EAE51 /* ListView.swift in Sources */,
 				7CB477CD2BB80EE1003EAE51 /* TransformsView.swift in Sources */,
 				7CB477BC2BB5471D003EAE51 /* NavigationView.swift in Sources */,
+				7CB477E32BBBD4D2003EAE51 /* HoverViewModifierView.swift in Sources */,
 				7CB477C42BB582DD003EAE51 /* Movie.swift in Sources */,
 				7CB477D12BB8158A003EAE51 /* FiltersView.swift in Sources */,
 				7C26EDA02BA5A1260054ED15 /* ShadowsView.swift in Sources */,
 				7C4CA11A2BA86AED002124B3 /* BrutalistView.swift in Sources */,
 				7CAC27292BA7111E001B9A5E /* ElegantView.swift in Sources */,
-				7CB477DC2BBA89FA003EAE51 /* HandlingHoverFocusAndOtherStatesView.swift in Sources */,
+				7CB477DC2BBA89FA003EAE51 /* FormStatesView.swift in Sources */,
+				7CB477E52BBBD4E6003EAE51 /* FirstLastView.swift in Sources */,
 				7CB477D42BB938DF003EAE51 /* InstallationView.swift in Sources */,
+				7CB477E72BBBD51D003EAE51 /* StylingBasedOnParentStateView.swift in Sources */,
 				7CB477DA2BB950D4003EAE51 /* UtilityFirstFundamentalsView.swift in Sources */,
 				7C26ED9C2BA58ECB0054ED15 /* ColorsView.swift in Sources */,
 				7C4CA11C2BA89112002124B3 /* MobileFirstView.swift in Sources */,
@@ -414,12 +440,14 @@
 				7C26ED6E2BA433DE0054ED15 /* ContentView.swift in Sources */,
 				7CA9C64B2BB1682C00FE50B1 /* StateVariantsView.swift in Sources */,
 				7C26ED9A2BA5800C0054ED15 /* SizingView.swift in Sources */,
+				7CB477E12BBBD4C1003EAE51 /* ModifiersView.swift in Sources */,
 				7CB477CF2BB81202003EAE51 /* CSSGridView.swift in Sources */,
 				7C26EDA62BA6C1E70054ED15 /* PlayfulView.swift in Sources */,
 				7CB477C22BB54D72003EAE51 /* ListItem.swift in Sources */,
 				7C26ED6C2BA433DE0054ED15 /* ExamplesApp.swift in Sources */,
 				7CB477C62BB58DB3003EAE51 /* DarkModeView.swift in Sources */,
 				7C26ED9E2BA59AA20054ED15 /* TypographyView.swift in Sources */,
+				7CB477DF2BBBD48E003EAE51 /* HoverView.swift in Sources */,
 				7CB477BA2BB53E32003EAE51 /* MoviesView.swift in Sources */,
 				7C26EDA22BA695270054ED15 /* SimpleView.swift in Sources */,
 			);

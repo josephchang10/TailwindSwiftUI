@@ -134,3 +134,38 @@ Form {
 ```
 
 Using modifiers for this sort of thing can reduce the amount of conditional logic in your templates, letting you use the same set of view modifiers regardless of what state an input is in.
+
+
+**Styling based on parent state (.group{Modifier})
+
+When you need to style an element based on the state of some *parent* element, mark the parent with the `.group()` view modifier, and use `.group*(_:)` modifiers like `.groupHover(_:)` to style the target element:
+
+```swift
+Link(destination: .init(string: "#")!) {
+    VStack(alignment: .leading, spacing: .s3) {
+        HStack(spacing: .s3) {
+            Image(systemName: "folder.badge.plus")
+                .groupHover(.foregroundStyle(.white))
+                .foregroundStyle(.sky500)
+            Text("New project")
+                .groupHover(.foregroundStyle(.white))
+                .foregroundStyle(.slate900)
+                .text(.small)
+                .fontWeight(.semibold)
+        }
+        Text("Create a new project from a variety of starting templates.")
+            .groupHover(.foregroundStyle(.white))
+            .foregroundStyle(.slate500)
+            .text(.small)
+            .multilineTextAlignment(.leading)
+    }
+}
+.padding(.s6)
+.max(width: .extraSmall)
+.group()
+.hover(.background(.sky500))
+.background(.white)
+.hover(.ring(.sky500, thickness: .t1, rounded: .large), default: .ring(.slate900 / 5, thickness: .t1, rounded: .large))
+.rounded(.large)
+.shadow(.large)
+```
