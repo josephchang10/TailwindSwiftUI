@@ -29,10 +29,18 @@ public extension CGFloat {
     }
     
     static func point(_ pixels: Self) -> Self {
+        #if canImport(AppKit)
         if let scale = NSScreen.main?.backingScaleFactor {
             pixels / scale
         } else {
             pixels
         }
+        #else
+        if let scale = UIScreen.current?.scale {
+            pixels / scale
+        } else {
+            pixels
+        }
+        #endif
     }
 }
