@@ -8,7 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
-extension UIScreen {
+public extension UIScreen {
     static var current: UIScreen? {
         UIWindow.key?.screen
     }
