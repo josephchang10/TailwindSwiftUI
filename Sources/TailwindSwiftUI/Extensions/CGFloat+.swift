@@ -5,17 +5,13 @@
 //  Created by Jiafu Zhang on 3/15/24.
 //
 
-#if canImport(AppKit)
-import AppKit
-#else
-import UIKit
-#endif
+import SwiftUI
 
 public extension CGFloat {
     // Converts the value from rem to points based on the preferred font size for .body text style.
     static func rem(_ n: Self) -> Self {
         // Retrieve the preferred font size for .body text style
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         let bodyFontSize = NSFont.preferredFont(forTextStyle: .body).pointSize
         #else
         let bodyFontSize = UIFont.preferredFont(forTextStyle: .body).pointSize
@@ -29,7 +25,7 @@ public extension CGFloat {
     }
     
     static func point(_ pixels: Self) -> Self {
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         if let scale = NSScreen.main?.backingScaleFactor {
             pixels / scale
         } else {

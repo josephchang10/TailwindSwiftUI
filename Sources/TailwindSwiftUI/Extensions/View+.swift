@@ -59,7 +59,7 @@ public extension View {
         guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
             return AnyView(self)
         }
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         return AnyView(Image(nsImage: NSImage(cgImage: cgImage, size: .zero)))
         #else
         return AnyView(Image(uiImage: UIImage(cgImage: cgImage)))
@@ -75,7 +75,7 @@ struct CursorPointer: ViewModifier {
             .onHover { hovering in
                 isHovering = hovering
             }
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
             .onChange(of: isHovering) { oldValue, newValue in
                 DispatchQueue.main.async {
                     if newValue {

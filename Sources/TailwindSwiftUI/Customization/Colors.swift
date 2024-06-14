@@ -399,7 +399,7 @@ public extension Color {
     
     // Helper function to get the Color from assets
     private static func named(_ name: String) -> Color {
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         .init(nsColor: NSColor(named: name, bundle: .module)!)
         #else
         .init(uiColor: UIColor(named: name, in: .module, compatibleWith: nil)!)

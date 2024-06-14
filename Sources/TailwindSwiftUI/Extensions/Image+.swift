@@ -22,7 +22,7 @@ public extension Image {
         guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
             return self
         }
-        #if canImport(AppKit)
+        #if canImport(AppKit) && !targetEnvironment(macCatalyst)
         return Image(nsImage: NSImage(cgImage: cgImage, size: .zero))
         #else
         return Image(uiImage: UIImage(cgImage: cgImage))
